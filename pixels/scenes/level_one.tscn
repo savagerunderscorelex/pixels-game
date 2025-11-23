@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://b8gtr3bukmtej"]
+
+[ext_resource type="PackedScene" uid="uid://cfy204ca81v35" path="res://scenes/player.tscn" id="1_cd1xg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t18mc"]
+size = Vector2(780, 336)
+
+[sub_resource type="TileSet" id="TileSet_843q2"]
+
+[node name="level_one" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D"]
+color = Color(0.290196, 1, 1, 1)
+polygon = PackedVector2Array(133, 7, 608, 7, 608, 273, 97, 261)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(380, 178)
+shape = SubResource("RectangleShape2D_t18mc")
+metadata/_edit_group_ = true
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_set = SubResource("TileSet_843q2")
+
+[node name="Player" parent="." instance=ExtResource("1_cd1xg")]
+position = Vector2(335, -88)
