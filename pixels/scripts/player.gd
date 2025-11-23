@@ -2,9 +2,9 @@ extends CharacterBody2D
 const CHARACTER_SPEED = 250
 const JUMP_SPEED = -CHARACTER_SPEED * 2
 const GRAVITY = CHARACTER_SPEED * 3
-const HEALTH: int = 100
 
 @onready var animator: AnimatedSprite2D = $AnimatedSprite2D
+@onready var attacker: AnimationPlayer = self.get_node("AnimationPlayer")
 
 func _physics_process(delta: float) -> void: # This function takes a float as an input
 	get_input()
@@ -15,6 +15,10 @@ func _physics_process(delta: float) -> void: # This function takes a float as an
 func get_input() -> void: # -> void means returns void, which means that this function does not return a value
 	if Input.is_action_just_pressed("jump") and is_on_floor(): # If the up buttons are pressed and the sprite is touching a solid object
 		velocity.y = JUMP_SPEED # jumping height
+	if Input.is_action_just_pressed("attack"):
+		animator.play("Attack_One")
+		attacker.play("Attack_One")
+		
 	var direction = Input.get_axis("left", "right") # Gets 2 input actions for input, the right side of the assignment operator returns a value between -1 and 1, -1 for left, 1 for right
 	velocity.x = direction * CHARACTER_SPEED # If direction is negative, the velocity direction is left, if direction is positive, the velocity value will make the sprite go right
 
