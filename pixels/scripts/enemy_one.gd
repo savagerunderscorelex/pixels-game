@@ -3,6 +3,8 @@ extends CharacterBody2D
 @onready var animator = $AnimationPlayer
 
 @onready var player = get_parent().get_node("Player")
+@onready var area = $Area2D
+
 
 var GRAVITY : int = 750
 var speed = 100
@@ -10,6 +12,7 @@ var isAlive = true
 var hasBeenAttacked = false
 	
 func _physics_process(delta: float) -> void:
+
 	updateMovement(delta)
 	playMoving()
 	move_and_slide()
@@ -19,11 +22,12 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 		hasBeenAttacked = false
 		
 func playMoving():
+	area.add_to_group("Enemies")
 	if isAlive == true && hasBeenAttacked == false:
 		animator.play("move")
 	elif isAlive == true && hasBeenAttacked == true:
 		animator.play("hit")
-		print("I've been hit :(")
+		
 
 
 func _on_area_2d_area_entered(area: Area2D) -> void:

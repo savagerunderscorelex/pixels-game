@@ -48,35 +48,6 @@ tracks/2/keys = {
 "values": [0.0]
 }
 
-[sub_resource type="Animation" id="Animation_xe41m"]
-resource_name = "move"
-length = 2.0
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("../Sprite2D:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.398364, 0.749862, 1.14823, 1.55831),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(0.729167, 0.738095), Vector2(0.633334, 0.619048), Vector2(0.535088, 0.535512), Vector2(0.620846, 0.697017), Vector2(0.740009, 0.759874)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("../Sprite2D:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-
 [sub_resource type="Animation" id="Animation_klct8"]
 resource_name = "hit"
 length = 2.0
@@ -115,6 +86,35 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(0.729167, 0.738095), Vector2(0.729167, 0.503777), Vector2(0.888138, 0.531637), Vector2(0.72, 0.72), Vector2(0.902498, 0.809435), Vector2(0.911343, 0.569134), Vector2(0.947821, 0.811704), Vector2(0.798488, 0.665388), Vector2(0.686513, 0.538573), Vector2(0.72, 0.73)]
+}
+
+[sub_resource type="Animation" id="Animation_xe41m"]
+resource_name = "move"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.398364, 0.749862, 1.14823, 1.55831),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0.729167, 0.738095), Vector2(0.633334, 0.619048), Vector2(0.535088, 0.535512), Vector2(0.620846, 0.697017), Vector2(0.740009, 0.759874)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Sprite2D:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_klct8"]
