@@ -1,9 +1,8 @@
 extends CharacterBody2D
 
 @onready var animator = $AnimationPlayer
-
 @onready var player = get_parent().get_node("Player")
-@onready var area = $Area2D
+@onready var hurtbox = $Area2D
 
 
 var GRAVITY : int = 750
@@ -22,17 +21,16 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 		hasBeenAttacked = false
 		
 func playMoving():
-	area.add_to_group("Enemies")
+	hurtbox.add_to_group("Enemies")
 	if isAlive == true && hasBeenAttacked == false:
 		animator.play("move")
 	elif isAlive == true && hasBeenAttacked == true:
 		animator.play("hit")
 		
-
-
 func _on_area_2d_area_entered(area: Area2D) -> void:
-	if area.name == "SwordHitboxArea":
+	if area.is_in_group("Sword"):
 		hasBeenAttacked = true
+		print("im hit :(")
 
 func updateMovement(delta: float) -> void:
 	velocity.y += GRAVITY * delta

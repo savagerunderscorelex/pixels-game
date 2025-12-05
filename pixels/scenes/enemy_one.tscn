@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://db44ixvuki0in"]
 
-[ext_resource type="Texture2D" uid="uid://8i512n3hnylo" path="res://images/notes.png" id="1_6p3xy"]
+[ext_resource type="Texture2D" uid="uid://8i512n3hnylo" path="res://scenes/notes.png" id="1_6p3xy"]
 [ext_resource type="Script" uid="uid://dcxq42pw48dy7" path="res://scripts/enemy_one.gd" id="1_xe41m"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q8j5a"]
@@ -159,6 +159,5 @@ position = Vector2(-35, -29)
 shape = SubResource("RectangleShape2D_klct8")
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
-[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="body_entered" from="PlayerDetection" to="." method="_on_player_detection_body_entered"]

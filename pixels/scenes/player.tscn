@@ -1,9 +1,11 @@
-[gd_scene load_steps=33 format=3 uid="uid://cfy204ca81v35"]
+[gd_scene load_steps=36 format=3 uid="uid://cfy204ca81v35"]
 
 [ext_resource type="Script" uid="uid://dv7mc3cn51caq" path="res://scripts/player.gd" id="1_3vyb7"]
 [ext_resource type="Texture2D" uid="uid://dbmm12gn3oeqh" path="res://assets/Soldier-Attack01.png" id="2_dqkch"]
 [ext_resource type="Texture2D" uid="uid://bkovwpf6ekh4r" path="res://assets/Soldier-Idle.png" id="2_qhqgy"]
 [ext_resource type="Texture2D" uid="uid://brno4snw35pfc" path="res://assets/Soldier-Walk.png" id="3_qhqgy"]
+[ext_resource type="AudioStream" uid="uid://kwr2hadtvp84" path="res://sounds/sword-sound.mp3" id="5_qlg0r"]
+[ext_resource type="AudioStream" uid="uid://sijg0axjv4jn" path="res://sounds/sword-empty.mp3" id="5_tuyoq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d2wvv"]
 size = Vector2(29, 40)
@@ -117,6 +119,11 @@ animations = [{
 "name": &"attack1",
 "speed": 5.0
 }, {
+"frames": [],
+"loop": true,
+"name": &"hurt",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_smehm")
@@ -212,7 +219,7 @@ tracks/2/keys = {
 [sub_resource type="Animation" id="Animation_d2wvv"]
 resource_name = "attack1"
 length = 1.5
-step = 0.2
+step = 0.166667
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -310,10 +317,15 @@ tracks/1/keys = {
 "values": [0, 1, 2, 3, 4, 5, 6, 7]
 }
 
+[sub_resource type="Animation" id="Animation_tuyoq"]
+resource_name = "hurt"
+step = 0.166667
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3v2ag"]
 _data = {
 &"RESET": SubResource("Animation_y4r1p"),
 &"attack1": SubResource("Animation_d2wvv"),
+&"hurt": SubResource("Animation_tuyoq"),
 &"idle": SubResource("Animation_qlg0r"),
 &"walk": SubResource("Animation_dqkch")
 }
@@ -322,7 +334,7 @@ _data = {
 script = ExtResource("1_3vyb7")
 metadata/_edit_horizontal_guides_ = [-34.0]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="Hurtbox" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, 1)
 shape = SubResource("RectangleShape2D_d2wvv")
 
@@ -349,6 +361,12 @@ libraries = {
 }
 
 [node name="CooldownTimer" type="Timer" parent="."]
+
+[node name="SwordSwingSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_tuyoq")
+
+[node name="SwordSlashEffect" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_qlg0r")
 
 [connection signal="area_entered" from="SwordHitboxArea" to="." method="_on_sword_hitbox_area_area_entered"]
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

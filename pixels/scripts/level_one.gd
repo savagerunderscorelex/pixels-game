@@ -1,10 +1,22 @@
 extends Node2D
 
+@onready var player = $Player
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func _physics_process(delta: float) -> void:
+
+	update_movement()
+	up(delta)
+	
+
+
+func update_movement():
+			if Input.is_action_just_pressed("jump"):
+				player.velocity.y = player.CHARACTER_SPEED * -1
+			
+func up(delta: float):
+	var direction = Input.get_axis("jump", "dive")

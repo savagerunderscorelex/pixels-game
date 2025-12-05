@@ -7,13 +7,15 @@ var isAttacking = false
 var isFlippedAttack = false
 
 @onready var hitbox = $SwordHitboxArea
-
 @onready var animator: AnimatedSprite2D = $AnimatedSprite2D
 @onready var attacker: AnimationPlayer = $AnimationPlayer
+@onready var swordSlashEffect: AudioStreamPlayer = $SwordSlashEffect
+@onready var swordSwingEffect: AudioStreamPlayer = $SwordSwingSound
 
 func _physics_process(delta: float) -> void: # This function takes a float as an input
 	get_input()
 	attack()
+	update_areas()
 	update_movement(delta)
 	update_animation()
 	move_and_slide() # Can only be used in a Character2D Node
@@ -23,6 +25,7 @@ func get_input() -> void: # -> void means returns void, which means that this fu
 		velocity.y = JUMP_SPEED # jumping height
 	elif Input.is_action_just_pressed("hit"):
 		isAttacking = true
+		swordSwingEffect.play()
 	var direction = Input.get_axis("left", "right") # Gets 2 input actions for input, the right side of the assignment operator returns a value between -1 and 1, -1 for left, 1 for right
 	velocity.x = direction * CHARACTER_SPEED # If direction is negative, the velocity direction is left, if direction is positive, the velocity value will make the sprite go right
 
@@ -33,11 +36,8 @@ func attack():
 	if isAttacking == true:
 		# Remember (since I had an issue with this earlier): When an if statement is done resolving, it will go to the code next under it
 		# I had an issue where I would put the play code in each part of the if statement when it wasn't necessary
-		if isFlippedAttack == true: # Character is facing left
-			get_node('SwordHitboxArea').set_scale(Vector2(-1, 1)) # flips x position of the sword box
-		else:
-			get_node('SwordHitboxArea').set_scale(Vector2(1, 1)) # resets x position of the sword hitbox
 		attacker.play("attack1")
+		
 
 func update_animation() -> void:
 	if isAttacking == false:
@@ -46,11 +46,11 @@ func update_animation() -> void:
 		elif velocity.x < 0: # After like an hour of reading godot forums, I got this to work. I didn't follow the tutorial version because it's code would shrink my sprite when it turned left or right
 			animator.play("walk") # Also this version is way more easier to understand (and actually works!!)
 			animator.flip_h = true # Opposite, makes the sprite flip horizontally, facing left
-			isFlippedAttack = true # Boolean to check the direction of the attack, is true when the character flip is true
+			get_node('SwordHitboxArea').set_scale(Vector2(-1, 1)) # flips x position of the sword box
 		elif velocity.x > 0:
 			animator.play("walk")
 			animator.flip_h = false # Makes the sprite go back to the original position
-			isFlippedAttack = false # Boolean to check the direction of teh attack, is false when the character flip is false (default direction)
+			get_node('SwordHitboxArea').set_scale(Vector2(1, 1)) # resets x position of the sword hitbox
 		
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "attack1":
@@ -59,4 +59,9 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 		
 func _on_sword_hitbox_area_area_entered(area: Area2D) -> void:
 	if area.is_in_group("Enemies"):
-		print("hey! listen")
+		swordSlashEffect.play()
+
+		print("hit enemy!")
+
+func update_areas():
+	hitbox.add_to_group("Sword")
