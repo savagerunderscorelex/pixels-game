@@ -251,11 +251,15 @@ tracks/2/path = NodePath("../SwordHitboxArea/SwordHitbox:disabled")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.632696, 0.99591),
+"times": PackedFloat32Array(0, 0.632696, 1.16667),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [true, false, true]
 }
+
+[sub_resource type="Animation" id="Animation_tuyoq"]
+resource_name = "hurt"
+step = 0.166667
 
 [sub_resource type="Animation" id="Animation_qlg0r"]
 resource_name = "idle"
@@ -317,10 +321,6 @@ tracks/1/keys = {
 "values": [0, 1, 2, 3, 4, 5, 6, 7]
 }
 
-[sub_resource type="Animation" id="Animation_tuyoq"]
-resource_name = "hurt"
-step = 0.166667
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3v2ag"]
 _data = {
 &"RESET": SubResource("Animation_y4r1p"),
@@ -337,8 +337,6 @@ metadata/_edit_horizontal_guides_ = [-34.0]
 [node name="Hurtbox" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, 1)
 shape = SubResource("RectangleShape2D_d2wvv")
-
-[node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="SwordHitboxArea" type="Area2D" parent="."]
 

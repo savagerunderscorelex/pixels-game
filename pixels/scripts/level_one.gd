@@ -1,6 +1,8 @@
 extends Node2D
 
 @onready var player = $Player
+@onready var attacker = $Player.attacker
+@onready var enemyOne = $enemy_one
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -8,15 +10,23 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
+	self.add_to_group("Boss Areas")
+	reset_player_physics()
+	reset_enemy_one_physics()
+	change_animations()
 
-	update_movement()
-	up(delta)
-	
-
-
-func update_movement():
-			if Input.is_action_just_pressed("jump"):
-				player.velocity.y = player.CHARACTER_SPEED * -1
 			
-func up(delta: float):
-	var direction = Input.get_axis("jump", "dive")
+func reset_player_physics():
+	player.GRAVITY = 0
+	var direction = Input.get_vector("left", "right", "jump", "dive")
+	player.velocity = direction * player.CHARACTER_SPEED
+	
+func change_animations():
+	if player.velocity.x != 0 || player.velocity.y != 0:
+		if player.isAttacking == false:
+			player.animator.play("walk")
+	elif player.velocity.x == 0 && player.velocity.y == 0:
+		if player.isAttacking == false:
+			player.animator.play("idle")
+func reset_enemy_one_physics():
+	enemyOne.GRAVITY = 0
