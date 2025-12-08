@@ -7,8 +7,8 @@
 [ext_resource type="AudioStream" uid="uid://kwr2hadtvp84" path="res://sounds/sword-sound.mp3" id="5_qlg0r"]
 [ext_resource type="AudioStream" uid="uid://sijg0axjv4jn" path="res://sounds/sword-empty.mp3" id="5_tuyoq"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_d2wvv"]
-size = Vector2(29, 40)
+[sub_resource type="CircleShape2D" id="CircleShape2D_tuyoq"]
+radius = 20.5183
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ur7pv"]
 size = Vector2(28, 17)
@@ -335,8 +335,8 @@ script = ExtResource("1_3vyb7")
 metadata/_edit_horizontal_guides_ = [-34.0]
 
 [node name="Hurtbox" type="CollisionShape2D" parent="."]
-position = Vector2(0.5, 1)
-shape = SubResource("RectangleShape2D_d2wvv")
+position = Vector2(1, 5)
+shape = SubResource("CircleShape2D_tuyoq")
 
 [node name="SwordHitboxArea" type="Area2D" parent="."]
 
@@ -346,7 +346,7 @@ shape = SubResource("RectangleShape2D_ur7pv")
 disabled = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(-0.5, 5.50001)
+position = Vector2(0, 10)
 scale = Vector2(1.99, 2.07)
 sprite_frames = SubResource("SpriteFrames_smehm")
 animation = &"walk"

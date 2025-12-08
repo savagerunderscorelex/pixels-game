@@ -1,0 +1,62 @@
+[gd_scene load_steps=8 format=3 uid="uid://b8gtr3bukmtej"]
+
+[ext_resource type="Script" uid="uid://4spxk7gvmbvq" path="res://scripts/boss_level.gd" id="1_8q0yx"]
+[ext_resource type="Texture2D" uid="uid://bys2302ybxokn" path="res://images/battleback1.png" id="2_dnfp7"]
+[ext_resource type="PackedScene" uid="uid://cfy204ca81v35" path="res://scenes/player.tscn" id="3_lyfqi"]
+[ext_resource type="PackedScene" uid="uid://db44ixvuki0in" path="res://scenes/enemy_one.tscn" id="4_vbn7p"]
+[ext_resource type="PackedScene" uid="uid://cggw6soxf8f37" path="res://scenes/orc.tscn" id="5_dnfp7"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_5rfim"]
+normal = Vector2(8.00487e-08, -1)
+distance = -78.853
+
+[sub_resource type="TileSet" id="TileSet_843q2"]
+
+[node name="boss_level" type="Node2D"]
+script = ExtResource("1_8q0yx")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(3.99991, 4.3869e-05)
+scale = Vector2(1.07971, 1.13366)
+texture = ExtResource("2_dnfp7")
+
+[node name="WorldBoundaryUp" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="WorldBoundaryUp"]
+position = Vector2(520, 40)
+rotation = -1.5708
+scale = Vector2(1.15703, 1.0293)
+shape = SubResource("WorldBoundaryShape2D_5rfim")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="WorldBoundaryUp"]
+position = Vector2(-520, 32)
+rotation = 1.5708
+scale = Vector2(1.15703, 1.0293)
+shape = SubResource("WorldBoundaryShape2D_5rfim")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="WorldBoundaryUp"]
+position = Vector2(-8, 248)
+scale = Vector2(1.07565, 1.01455)
+shape = SubResource("WorldBoundaryShape2D_5rfim")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBoundaryUp"]
+position = Vector2(0, -176)
+rotation = -3.14159
+scale = Vector2(1.03714, 1.00725)
+shape = SubResource("WorldBoundaryShape2D_5rfim")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_set = SubResource("TileSet_843q2")
+
+[node name="Player" parent="." instance=ExtResource("3_lyfqi")]
+position = Vector2(335, -88)
+scale = Vector2(2, 2)
+
+[node name="enemy_one" parent="." instance=ExtResource("4_vbn7p")]
+position = Vector2(-816, 104)
+scale = Vector2(0.3, 0.3)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Orc" parent="." instance=ExtResource("5_dnfp7")]
+position = Vector2(-128, -176)
