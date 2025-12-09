@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://cggw6soxf8f37"]
+[gd_scene load_steps=37 format=3 uid="uid://cggw6soxf8f37"]
 
 [ext_resource type="Script" uid="uid://by40aesarj01w" path="res://scripts/orc.gd" id="1_s5mlm"]
 [ext_resource type="Texture2D" uid="uid://buu13qwg36hid" path="res://assets/Orc.png" id="2_nvs4g"]
@@ -196,8 +196,47 @@ animations = [{
 "speed": 8.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_e3rbj"]
-size = Vector2(15, 16)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nvs4g"]
+size = Vector2(11.3188, 13.5039)
+
+[sub_resource type="Animation" id="Animation_8a5gh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"attack"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../AxeHitbox/CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_v64p0"]
 resource_name = "attack"
@@ -240,45 +279,6 @@ tracks/2/keys = {
 "values": [true, false, true]
 }
 
-[sub_resource type="Animation" id="Animation_8a5gh"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:animation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"attack"]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("../AxeHitbox/CollisionShape2D:disabled")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qp0yf"]
 _data = {
 &"RESET": SubResource("Animation_8a5gh"),
@@ -286,12 +286,17 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bviuh"]
+size = Vector2(20.6275, 10.3434)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s5mlm"]
+size = Vector2(25.3137, 21.4927)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q5uja"]
 size = Vector2(89.8849, 67.8069)
 
 [node name="Orc" type="CharacterBody2D"]
 floor_stop_on_slope = false
+floor_block_on_wall = false
 platform_on_leave = 2
 platform_floor_layers = 4294967294
 script = ExtResource("1_s5mlm")
@@ -303,9 +308,9 @@ sprite_frames = SubResource("SpriteFrames_rodul")
 animation = &"attack"
 
 [node name="Hurtbox" type="CollisionShape2D" parent="."]
-position = Vector2(5, 7)
+position = Vector2(10, 6.5)
 scale = Vector2(3.00384, 3.48047)
-shape = SubResource("RectangleShape2D_e3rbj")
+shape = SubResource("RectangleShape2D_nvs4g")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../Sprite2D")
@@ -318,18 +323,27 @@ position = Vector2(4, 7)
 scale = Vector2(3.00384, 3.48047)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AxeHitbox"]
-position = Vector2(20, -1)
+position = Vector2(20.3137, -2.38419e-07)
 shape = SubResource("RectangleShape2D_bviuh")
 disabled = true
+
+[node name="AttackRange" type="Area2D" parent="."]
+position = Vector2(4, 7)
+scale = Vector2(3.00384, 3.48047)
+
+[node name="AttackRangeCollision" type="CollisionShape2D" parent="AttackRange"]
+position = Vector2(0.998721, -0.287317)
+shape = SubResource("RectangleShape2D_s5mlm")
 
 [node name="PlayerDetection" type="Area2D" parent="."]
 position = Vector2(4, 7)
 scale = Vector2(3.00384, 3.48047)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetection"]
-position = Vector2(1.33163, 1.14927)
-scale = Vector2(1, 1)
+position = Vector2(2.99616, 1.43659)
 shape = SubResource("RectangleShape2D_q5uja")
 
+[connection signal="body_entered" from="AttackRange" to="." method="_on_attack_range_body_entered"]
+[connection signal="body_exited" from="AttackRange" to="." method="_on_attack_range_body_exited"]
 [connection signal="body_entered" from="PlayerDetection" to="." method="_on_player_detection_body_entered"]
 [connection signal="body_exited" from="PlayerDetection" to="." method="_on_player_detection_body_exited"]
