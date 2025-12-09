@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+# Issue Notes: 
+# Fixed Orc sitting on player issue by disabling floor layer 1 and setting on leave to do nothing in CharacterBody2D node
 var CHARACTER_SPEED: int = 150
 var isAttacking = false
 @onready var animator = $Sprite2D
@@ -12,10 +14,11 @@ func _physics_process(delta: float) -> void:
 	update_animation()
 	move_to_player()
 	move_and_slide()
+	attack()
+	
 func _on_player_detection_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
 		player = body
-		attack()
 		
 func _on_player_detection_body_exited(body: Node2D) -> void:
 	player = null
@@ -28,10 +31,12 @@ func flip_self():
 	animator.play("walk")
 	
 func attack():
-	if player.global_position.x - self.global_position.x < 0:
-		print("too close now!")
-		velocity = Vector2.ZERO
-		animator.play("attack")
+	if player:
+		var distanceFromPlayer = position.distance_squared_to(player.position)
+		if distanceFromPlayer < 1:
+			print("too close now!")
+			velocity = Vector2(0,0)
+			animator.play("attack")
 
 func update_animation():
 	if !isAttacking && velocity == Vector2(0,0):
