@@ -30,10 +30,12 @@ func _on_player_detection_body_exited(body: Node2D) -> void:
 			player = null
 
 func flip_self():
-	if player.position.x < 0 && !isAttacking:
+	if player.position.x <= 0:
 		animator.flip_h = true
-	else:
+		get_node("AxeHitbox").set_scale(Vector2(-1, 1))
+	elif player.position.x > 0:
 		animator.flip_h = false
+		get_node("AxeHitbox").set_scale(Vector2(1, 1))
 	
 func attack():
 	if isAttacking == true:
@@ -41,12 +43,20 @@ func attack():
 		velocity = velocity * 0	
 
 func update_animation():
-	if !isAttacking && velocity == Vector2(0,0):
-		animator.play("idle")
-	elif isAttacking == true:
+	if isAttacking == false:
+		if velocity == Vector2(0,0):
+			animator.play("idle")
+		else:
+			if player:
+				if player.position.x < 0:
+					animator.flip_h = true
+					get_node("AxeHitbox").set_scale(Vector2(-1, 1))
+				elif player.position.x > 0:
+					animator.flip_h = false
+					get_node("AxeHitbox").set_scale(Vector2(1, 1))
+				animator.play("walk")
+	else: 
 		attacker.play("attack")
-	else:
-		animator.play("walk")
 
 func move_to_player():
 	velocity = Vector2.ZERO
@@ -63,3 +73,10 @@ func _on_attack_range_body_exited(body: Node2D) -> void:
 	if body.name == "Player":
 		await get_tree().create_timer(1).timeout
 		isAttacking = false
+
+
+func _on_axe_hitbox_area_entered(area: Area2D) -> void:
+	if area.name == "Hurtbox":
+		$SwordSlashEffect.play()
+		print("heehee you've been hit, fellow player >:)")
+		

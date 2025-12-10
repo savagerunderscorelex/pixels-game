@@ -1,9 +1,10 @@
-[gd_scene load_steps=37 format=3 uid="uid://cggw6soxf8f37"]
+[gd_scene load_steps=38 format=3 uid="uid://cggw6soxf8f37"]
 
 [ext_resource type="Script" uid="uid://by40aesarj01w" path="res://scripts/orc.gd" id="1_s5mlm"]
 [ext_resource type="Texture2D" uid="uid://buu13qwg36hid" path="res://assets/Orc.png" id="2_nvs4g"]
 [ext_resource type="Texture2D" uid="uid://lo0jordcps6t" path="res://assets/Orc-Death.png" id="3_xme4o"]
 [ext_resource type="Texture2D" uid="uid://duoxs2si120n7" path="res://assets/Orc-Idle.png" id="4_duj3f"]
+[ext_resource type="AudioStream" uid="uid://kwr2hadtvp84" path="res://sounds/sword-sound.mp3" id="5_nvs4g"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_48uv6"]
 atlas = ExtResource("2_nvs4g")
@@ -286,7 +287,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bviuh"]
-size = Vector2(20.6275, 10.3434)
+size = Vector2(32.945, 15.8025)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s5mlm"]
 size = Vector2(25.3137, 21.4927)
@@ -323,7 +324,7 @@ position = Vector2(4, 7)
 scale = Vector2(3.00384, 3.48047)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AxeHitbox"]
-position = Vector2(20.3137, -2.38419e-07)
+position = Vector2(26.4725, 2.72952)
 shape = SubResource("RectangleShape2D_bviuh")
 disabled = true
 
@@ -343,6 +344,10 @@ scale = Vector2(3.00384, 3.48047)
 position = Vector2(2.99616, 1.43659)
 shape = SubResource("RectangleShape2D_q5uja")
 
+[node name="SwordSlashEffect" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_nvs4g")
+
+[connection signal="area_entered" from="AxeHitbox" to="." method="_on_axe_hitbox_area_entered"]
 [connection signal="body_entered" from="AttackRange" to="." method="_on_attack_range_body_entered"]
 [connection signal="body_exited" from="AttackRange" to="." method="_on_attack_range_body_exited"]
 [connection signal="body_entered" from="PlayerDetection" to="." method="_on_player_detection_body_entered"]
