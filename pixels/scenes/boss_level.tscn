@@ -55,4 +55,4 @@ scale = Vector2(2, 2)
 
 [node name="Orc" parent="." instance=ExtResource("5_dnfp7")]
 position = Vector2(-128, -176)
-scale = Vector2(1.39907, 1.4152)
+scale = Vector2(2.77543, 2.92075)

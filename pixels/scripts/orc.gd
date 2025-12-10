@@ -11,8 +11,7 @@ extends CharacterBody2D
 var CHARACTER_SPEED: int = 150
 var isAttacking: bool = false
 var player = null
-var health: int = 100
-var isDead: bool = false
+var health: int = 60
 
 func _ready() -> void:
 	self.add_to_group("Enemies")
@@ -87,4 +86,4 @@ func take_damage(attack: Attack):
 	print("taken damage!")
 	
 	if health <= 0:
-		isDead = true
+		self.queue_free()

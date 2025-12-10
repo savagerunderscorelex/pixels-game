@@ -1,9 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://bfpgcj32nxv7s"]
+[gd_scene load_steps=7 format=3 uid="uid://bfpgcj32nxv7s"]
 
 [ext_resource type="PackedScene" uid="uid://cfy204ca81v35" path="res://scenes/player.tscn" id="1_cd1xg"]
 [ext_resource type="Script" uid="uid://byo67e2jg8nyi" path="res://scripts/level_one.gd" id="1_t18mc"]
 [ext_resource type="Texture2D" uid="uid://bm3om8th0suwd" path="res://images/Document.png" id="2_843q2"]
-[ext_resource type="PackedScene" uid="uid://db44ixvuki0in" path="res://scenes/enemy_one.tscn" id="3_843q2"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_55s7s"]
 
@@ -48,10 +47,6 @@ scale = Vector2(10.6153, 10.2626)
 position = Vector2(1152, 304)
 rotation = -1.5708
 shape = SubResource("SegmentShape2D_5rfim")
-
-[node name="enemy_one" parent="." instance=ExtResource("3_843q2")]
-position = Vector2(2088, 500)
-scale = Vector2(0.55765, 0.545237)
 
 [node name="WorldBoundaries" type="StaticBody2D" parent="."]
 
