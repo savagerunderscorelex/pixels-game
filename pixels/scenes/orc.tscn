@@ -287,7 +287,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bviuh"]
-size = Vector2(32.945, 15.8025)
+size = Vector2(31.9463, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s5mlm"]
 size = Vector2(25.3137, 21.4927)
@@ -324,7 +324,7 @@ position = Vector2(4, 7)
 scale = Vector2(3.00384, 3.48047)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AxeHitbox"]
-position = Vector2(26.4725, 2.72952)
+position = Vector2(25.9732, -1)
 shape = SubResource("RectangleShape2D_bviuh")
 disabled = true
 

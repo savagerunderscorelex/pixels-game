@@ -27,12 +27,6 @@ window/size/always_on_top=true
 
 enabled=PackedStringArray("res://addons/godot_super-wakatime/plugin.cfg")
 
-[global_group]
-
-"Boss Areas"="Player levels where players fight against bosses"
-Enemies="Other CharacterBody2D nodes which the character has to fight against"
-Sword="player's sword"
-
 [input]
 
 jump={

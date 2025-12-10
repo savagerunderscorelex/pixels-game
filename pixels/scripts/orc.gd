@@ -7,6 +7,7 @@ extends CharacterBody2D
 @onready var attacker = $AnimationPlayer
 @onready var hitbox = $AxeHitbox
 
+
 var CHARACTER_SPEED: int = 150
 var isAttacking = false
 var player = null
@@ -73,7 +74,6 @@ func _on_attack_range_body_exited(body: Node2D) -> void:
 	if body.name == "Player":
 		await get_tree().create_timer(1).timeout
 		isAttacking = false
-
 
 func _on_axe_hitbox_area_entered(area: Area2D) -> void:
 	if area.name == "Hurtbox":
