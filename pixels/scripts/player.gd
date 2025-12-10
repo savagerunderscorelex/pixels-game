@@ -6,6 +6,7 @@ var GRAVITY = CHARACTER_SPEED * 3
 var isAttacking = false
 var isFlippedAttack = false
 var inBossArea = false
+var attack_damage: int = 20
 
 
 @onready var hitbox = $SwordHitboxArea
@@ -63,13 +64,18 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void: #
 	if anim_name == "attack1":
 		print("done attacking")
 		isAttacking = false
-		
-func _on_sword_hitbox_area_area_entered(area: Area2D) -> void:
-	if area.is_in_group("Enemies"):
-		swordSlashEffect.play()
-		print("hit enemy!")
 
 func update_areas():
 	hitbox.add_to_group("Sword")
 	if currentLevel.is_in_group("Boss Areas"):
 		inBossArea = true
+
+func _on_sword_hitbox_area_body_entered(body: Node2D) -> void:
+	if body.is_in_group("Enemies") && body.has_method("take_damage"):
+		var attack = Attack.new()
+		attack.attack_damage = attack_damage
+		
+		body.take_damage(attack)
+		
+		swordSlashEffect.play()
+		print("hit enemy!")

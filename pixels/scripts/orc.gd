@@ -3,17 +3,19 @@ extends CharacterBody2D
 # Issue Notes: 
 # Fixed Orc sitting on player issue by disabling floor layer 1 and setting on leave to do nothing in CharacterBody2D node
 
-@onready var animator = $Sprite2D
-@onready var attacker = $AnimationPlayer
-@onready var hitbox = $AxeHitbox
+@onready var animator: AnimatedSprite2D = $Animator
+@onready var attacker: AnimationPlayer = $AnimationPlayer
+@onready var hitbox: Area2D = $AxeHitbox
 
 
 var CHARACTER_SPEED: int = 150
-var isAttacking = false
+var isAttacking: bool = false
 var player = null
+var health: int = 100
+var isDead: bool = false
 
 func _ready() -> void:
-	hitbox.add_to_group("Enemy Hitboxes")
+	self.add_to_group("Enemies")
 
 func _physics_process(delta: float) -> void:
 	update_animation()
@@ -38,7 +40,7 @@ func flip_self():
 		animator.flip_h = false
 		get_node("AxeHitbox").set_scale(Vector2(1, 1))
 	
-func attack():
+func do_attack():
 	if isAttacking == true:
 		print("too close now!") # debug :(
 		velocity = velocity * 0	
@@ -68,7 +70,7 @@ func move_to_player():
 func _on_attack_range_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
 		isAttacking = true
-		attack()
+		do_attack()
 
 func _on_attack_range_body_exited(body: Node2D) -> void:
 	if body.name == "Player":
@@ -76,7 +78,13 @@ func _on_attack_range_body_exited(body: Node2D) -> void:
 		isAttacking = false
 
 func _on_axe_hitbox_area_entered(area: Area2D) -> void:
-	if area.is_in_group("Player Areas"):
+	if area.is_in_group("Player Areas"): # Original issue was that the orc hurtbox and player hurtbox had the same name
 		$SwordSlashEffect.play()
 		print("heehee you've been hit, fellow player >:)")
 		
+func take_damage(attack: Attack):
+	health -= attack.attack_damage
+	print("taken damage!")
+	
+	if health <= 0:
+		isDead = true

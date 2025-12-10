@@ -287,7 +287,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bviuh"]
-size = Vector2(31.9463, 20)
+size = Vector2(31.9463, 21.3434)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s5mlm"]
 size = Vector2(25.3137, 21.4927)
@@ -305,7 +305,7 @@ platform_on_leave = 2
 platform_floor_layers = 4294967294
 script = ExtResource("1_s5mlm")
 
-[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+[node name="Animator" type="AnimatedSprite2D" parent="."]
 position = Vector2(4, 7)
 scale = Vector2(3.00384, 3.48047)
 sprite_frames = SubResource("SpriteFrames_rodul")
@@ -317,7 +317,7 @@ scale = Vector2(3.00384, 3.48047)
 shape = SubResource("RectangleShape2D_nvs4g")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-root_node = NodePath("../Sprite2D")
+root_node = NodePath("../Animator")
 libraries = {
 &"": SubResource("AnimationLibrary_qp0yf")
 }
@@ -327,7 +327,7 @@ position = Vector2(4, 7)
 scale = Vector2(3.00384, 3.48047)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AxeHitbox"]
-position = Vector2(25.9732, -1)
+position = Vector2(25.9732, -0.328285)
 shape = SubResource("RectangleShape2D_bviuh")
 disabled = true
 

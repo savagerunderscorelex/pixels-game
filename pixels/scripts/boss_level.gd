@@ -1,20 +1,21 @@
 extends Node2D
 
-@onready var player = $Player
-@onready var attacker = $Player.attacker
+@onready var player: CharacterBody2D = $Player
+@onready var attacker: AnimationPlayer = $Player.attacker
+@onready var orc: CharacterBody2D = $Orc
 
-# Called when the node enters the scene tree for the first time.
+
+
 func _ready() -> void:
-	pass # Replace with function body.
+	pass
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
 	self.add_to_group("Boss Areas")
 	reset_player_physics()
 	change_animations()
+	check_for_orc()
 
-			
+# Player reset stuff 
 func reset_player_physics():
 	player.GRAVITY = 0
 	var direction = Input.get_vector("left", "right", "jump", "dive")
@@ -27,3 +28,13 @@ func change_animations():
 	elif player.velocity.x == 0 && player.velocity.y == 0:
 		if player.isAttacking == false:
 			player.animator.play("idle")
+
+func check_for_orc():	
+	if orc.isDead == true:
+		orc.queue_free()
+		
+		await get_tree().create_timer(3).timeout
+		
+		
+		orc.queue_redraw()
+		orc.isDead = false
