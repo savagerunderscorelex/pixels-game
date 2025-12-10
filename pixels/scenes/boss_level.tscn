@@ -1,9 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://b8gtr3bukmtej"]
+[gd_scene load_steps=7 format=3 uid="uid://b8gtr3bukmtej"]
 
 [ext_resource type="Script" uid="uid://4spxk7gvmbvq" path="res://scripts/boss_level.gd" id="1_8q0yx"]
 [ext_resource type="Texture2D" uid="uid://bys2302ybxokn" path="res://images/battleback1.png" id="2_dnfp7"]
 [ext_resource type="PackedScene" uid="uid://cfy204ca81v35" path="res://scenes/player.tscn" id="3_lyfqi"]
-[ext_resource type="PackedScene" uid="uid://db44ixvuki0in" path="res://scenes/enemy_one.tscn" id="4_vbn7p"]
 [ext_resource type="PackedScene" uid="uid://cggw6soxf8f37" path="res://scenes/orc.tscn" id="5_dnfp7"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_5rfim"]
@@ -51,10 +50,6 @@ tile_set = SubResource("TileSet_843q2")
 [node name="Player" parent="." instance=ExtResource("3_lyfqi")]
 position = Vector2(335, -88)
 scale = Vector2(2, 2)
-
-[node name="enemy_one" parent="." instance=ExtResource("4_vbn7p")]
-position = Vector2(-816, 104)
-scale = Vector2(0.3, 0.3)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
