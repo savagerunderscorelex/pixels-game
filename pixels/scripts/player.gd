@@ -14,6 +14,10 @@ var inBossArea = false
 @onready var swordSlashEffect: AudioStreamPlayer = $SwordSlashEffect
 @onready var swordSwingEffect: AudioStreamPlayer = $SwordSwingSound
 @onready var currentLevel: Node2D = get_parent()
+@onready var hurtbox: Area2D = $Hurtbox
+
+func _ready() -> void:
+	hurtbox.add_to_group("Player Areas")
 
 func _physics_process(delta: float) -> void: # This function takes a float as an input
 	get_input()

@@ -76,7 +76,7 @@ func _on_attack_range_body_exited(body: Node2D) -> void:
 		isAttacking = false
 
 func _on_axe_hitbox_area_entered(area: Area2D) -> void:
-	if area.name == "Hurtbox":
+	if area.is_in_group("Player Areas"):
 		$SwordSlashEffect.play()
 		print("heehee you've been hit, fellow player >:)")
 		
