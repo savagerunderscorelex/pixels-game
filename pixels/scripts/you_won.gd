@@ -1,11 +1,11 @@
 extends Node2D
 
 @onready var player: CharacterBody2D = $Player
-# Called when the node enters the scene tree for the first time.
+@onready var wonMessage: RichTextLabel = $Control/RichTextLabel
+@onready var areasss = $YouWon
+
 func _ready() -> void:
-	pass # Replace with function body.
-
-
+	pass
 
 func _physics_process(delta: float) -> void:
 	self.add_to_group("Boss Areas")
@@ -25,3 +25,13 @@ func change_animations():
 	elif player.velocity.x == 0 && player.velocity.y == 0:
 		if player.isAttacking == false:
 			player.animator.play("idle")
+
+
+func _on_you_won_body_entered(body: Node2D) -> void:
+	if body.name == "Player":
+		print("hey")
+		areasss.set_deferred("monitoring", false)
+		
+		while wonMessage.global_position.x > 600:
+			wonMessage.global_position.x -= 2
+			await get_tree().create_timer(0.006).timeout

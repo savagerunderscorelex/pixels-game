@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=4 uid="uid://dxhtbiyrpdo2m"]
+[gd_scene load_steps=11 format=4 uid="uid://dxhtbiyrpdo2m"]
 
 [ext_resource type="Script" uid="uid://bcrbq82k6wenx" path="res://scripts/you_won.gd" id="1_6bev4"]
 [ext_resource type="Texture2D" uid="uid://bqkufdjounrv" path="res://assets/battleback10.png" id="1_cwwad"]
 [ext_resource type="Texture2D" uid="uid://b6cp04p2xm7xs" path="res://assets/house_details.png" id="2_tio7n"]
 [ext_resource type="PackedScene" uid="uid://cfy204ca81v35" path="res://scenes/player.tscn" id="4_fufq8"]
+[ext_resource type="Script" uid="uid://bjpfs7rkp8o7e" path="res://scripts/rich_text_label.gd" id="5_fufq8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6bev4"]
 texture = ExtResource("2_tio7n")
@@ -250,7 +251,7 @@ size = Vector2(294, 182)
 script = ExtResource("1_6bev4")
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
-position = Vector2(566, 316)
+position = Vector2(569, 313)
 scale = Vector2(1.0788, 1.11031)
 texture = ExtResource("1_cwwad")
 
@@ -272,8 +273,34 @@ tile_set = SubResource("TileSet_tgsk8")
 position = Vector2(439, 387)
 scale = Vector2(2.5, 2.5)
 
-[node name="You Won!" type="Area2D" parent="."]
+[node name="YouWon" type="Area2D" parent="."]
+position = Vector2(-29, 61)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="You Won!"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YouWon"]
 position = Vector2(749, 480)
 shape = SubResource("RectangleShape2D_cfpfi")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.381
+anchor_top = 0.236
+anchor_right = 0.381
+anchor_bottom = 0.236
+offset_left = 1146.76
+offset_top = 241.56
+offset_right = 1589.76
+offset_bottom = 360.56
+theme_override_font_sizes/normal_font_size = 80
+bbcode_enabled = true
+script = ExtResource("5_fufq8")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[connection signal="body_entered" from="YouWon" to="." method="_on_you_won_body_entered"]
