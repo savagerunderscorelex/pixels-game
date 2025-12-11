@@ -296,7 +296,7 @@ size = Vector2(25.3137, 21.4927)
 size = Vector2(89.8849, 67.8069)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xme4o"]
-size = Vector2(52, 60)
+size = Vector2(79, 64)
 
 [node name="Orc" type="CharacterBody2D"]
 floor_stop_on_slope = false
@@ -353,7 +353,7 @@ stream = ExtResource("5_nvs4g")
 [node name="Hurtbox" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
-position = Vector2(5, 5)
+position = Vector2(6.5, 6)
 shape = SubResource("RectangleShape2D_xme4o")
 
 [connection signal="area_entered" from="AxeHitbox" to="." method="_on_axe_hitbox_area_entered"]

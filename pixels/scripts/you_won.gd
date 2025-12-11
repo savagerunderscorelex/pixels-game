@@ -32,6 +32,6 @@ func _on_you_won_body_entered(body: Node2D) -> void:
 		print("hey")
 		areasss.set_deferred("monitoring", false)
 		
-		while wonMessage.global_position.x > 600:
+		while wonMessage.global_position.x > 550: # I feel so smart figuring this out lol
 			wonMessage.global_position.x -= 2
 			await get_tree().create_timer(0.006).timeout
