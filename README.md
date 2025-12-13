@@ -11,6 +11,6 @@ Time Spent: ![Hackatime, OOOOOOOOOOOOOOHHHHHHHHHHH](https://hackatime-badge.hack
 
 ## Assets and Guides
 
-### Game Assets: Character Sprites, Backgrounds, Fonts, etc.
+### Game Assets: Character Sprites, Backgrounds, Fonts, etc
 
 ### Guides: Posts/Videos That Helped Me Code :]

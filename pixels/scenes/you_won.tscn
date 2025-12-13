@@ -791,6 +791,6 @@ theme_override_constants/outline_size = 13
 theme_override_fonts/normal_font = ExtResource("5_cfpfi")
 theme_override_font_sizes/normal_font_size = 50
 theme_override_styles/fill = SubResource("StyleBoxFlat_tgsk8")
-text = "! Quest: Defeat the Mighty Orc"
+text = "! Quest: Go Back Home!"
 
 [connection signal="body_entered" from="YouWon" to="." method="_on_you_won_body_entered"]

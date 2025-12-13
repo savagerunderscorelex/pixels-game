@@ -1,11 +1,17 @@
-extends Node2D
+extends Control
 
+@onready var completeLevels : RichTextLabel = $RichTextLabel2
+@onready var defeatOrc : RichTextLabel = $RichTextLabel3
+@onready var dontDie : RichTextLabel = $RichTextLabel4
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+	completeLevels.visible = false
+	defeatOrc.visible = false
+	dontDie.visible = false
+	
 func _process(delta: float) -> void:
-	pass
+	show_goals()
+	
+func show_goals():
+	await get_tree().create_timer(4).timeout
+	completeLevels.visible = true
