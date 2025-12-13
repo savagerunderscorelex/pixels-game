@@ -1,4 +1,5 @@
 extends RichTextLabel
+
 var movingDistance: float = 0.05
 var atPlace: bool = false
 
