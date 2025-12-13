@@ -1,15 +1,15 @@
-[gd_scene load_steps=16 format=4 uid="uid://dxhtbiyrpdo2m"]
+[gd_scene load_steps=17 format=4 uid="uid://bmnpnkok6xlga"]
 
-[ext_resource type="Script" uid="uid://bcrbq82k6wenx" path="res://scripts/you_won.gd" id="1_6bev4"]
-[ext_resource type="Texture2D" uid="uid://bqkufdjounrv" path="res://assets/battleback10.png" id="1_cwwad"]
-[ext_resource type="Texture2D" uid="uid://b6cp04p2xm7xs" path="res://assets/house_details.png" id="2_tio7n"]
-[ext_resource type="PackedScene" uid="uid://cfy204ca81v35" path="res://scenes/player.tscn" id="4_fufq8"]
-[ext_resource type="FontFile" uid="uid://d3uyqpog4e48d" path="res://fonts/VCR_OSD_MONO_1.001.ttf" id="5_cfpfi"]
-[ext_resource type="Script" uid="uid://bjpfs7rkp8o7e" path="res://scripts/rich_text_label.gd" id="5_fufq8"]
-[ext_resource type="Texture2D" uid="uid://2dhfltmqtyw4" path="res://assets/UiCozyFree.png" id="7_tgsk8"]
+[ext_resource type="Script" uid="uid://b12xvdjkb5mte" path="res://scripts/leaving_home.gd" id="1_b0653"]
+[ext_resource type="Texture2D" uid="uid://bqkufdjounrv" path="res://assets/battleback10.png" id="2_ut1wg"]
+[ext_resource type="Texture2D" uid="uid://b6cp04p2xm7xs" path="res://assets/house_details.png" id="3_ttg35"]
+[ext_resource type="PackedScene" uid="uid://cfy204ca81v35" path="res://scenes/player.tscn" id="4_nn4lg"]
+[ext_resource type="FontFile" uid="uid://d3uyqpog4e48d" path="res://fonts/VCR_OSD_MONO_1.001.ttf" id="5_xvfcf"]
+[ext_resource type="Script" uid="uid://xfaoky2m4b5b" path="res://scripts/move_label.gd" id="7_b0653"]
+[ext_resource type="Texture2D" uid="uid://2dhfltmqtyw4" path="res://assets/UiCozyFree.png" id="7_wvtrn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6bev4"]
-texture = ExtResource("2_tio7n")
+texture = ExtResource("3_ttg35")
 1:1/0 = 0
 1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 2:1/0 = 0
@@ -238,7 +238,7 @@ physics_layer_0/collision_layer = 1
 sources/2 = SubResource("TileSetAtlasSource_6bev4")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cfpfi"]
-texture = ExtResource("2_tio7n")
+texture = ExtResource("3_ttg35")
 1:1/0 = 0
 1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 2:1/0 = 0
@@ -470,11 +470,11 @@ texture = ExtResource("2_tio7n")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_cfpfi")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_cfpfi"]
-size = Vector2(294, 182)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tgsk8"]
+bg_color = Color(0.286275, 0.627451, 0.898039, 1)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tgsk8"]
-texture = ExtResource("7_tgsk8")
+texture = ExtResource("7_wvtrn")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -707,16 +707,20 @@ texture = ExtResource("7_tgsk8")
 [sub_resource type="TileSet" id="TileSet_3f8g8"]
 sources/0 = SubResource("TileSetAtlasSource_tgsk8")
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tgsk8"]
-bg_color = Color(0.286275, 0.627451, 0.898039, 1)
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_b0653"]
+a = Vector2(-16, -176)
+b = Vector2(-16, 456)
 
-[node name="you_won" type="Node2D"]
-script = ExtResource("1_6bev4")
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ut1wg"]
+distance = -120.0
+
+[node name="leaving_home" type="Node2D"]
+script = ExtResource("1_b0653")
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
 position = Vector2(567.751, 314.624)
 scale = Vector2(1.07654, 1.11554)
-texture = ExtResource("1_cwwad")
+texture = ExtResource("2_ut1wg")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 
@@ -732,43 +736,24 @@ scale = Vector2(3.48085, 3.03716)
 tile_map_data = PackedByteArray("AAAIAAgAAAAAAAkAAAAIAAkAAAAAAAoAAAAIAAoAAAAAAAsAAAAIAAsAAAAAAAwAAAAJAAUAAAABAAYAAAAJAAYAAAABAAcAAAAJAAcAAAABAAgAAAAJAAgAAAABAAkAAAAJAAkAAAABAAoAAAAJAAoAAAABAAsAAAAJAAsAAAADAA0AAAAKAAUAAAACAAYAAAAKAAYAAAACAAcAAAAKAAcAAAACAAgAAAAKAAgAAAACAAkAAAAKAAkAAAACAAoAAAAKAAoAAAACAAsAAAALAAUAAAADAAYAAAALAAYAAAADAAcAAAALAAcAAAADAAgAAAALAAgAAAADAAkAAAAMAAUAAAAEAAYAAAAMAAYAAAAEAAcAAAAMAAcAAAAEAAgAAAAMAAgAAAAEAAkAAAANAAUAAAAFAAYAAAANAAYAAAAFAAcAAAANAAcAAAAFAAgAAAANAAgAAAAFAAkAAAANAAkAAAAFAAoAAAANAAoAAAAFAAsAAAAOAAYAAAAGAAcAAAAOAAcAAAAGAAgAAAAOAAgAAAAGAAkAAAAOAAkAAAAGAAoAAAAOAAoAAAAGAAsAAAAPAAcAAAAHAAgAAAAPAAgAAAAHAAkAAAAPAAkAAAAHAAoAAAAPAAoAAAAHAAsAAAAQAAcAAAAIAAgAAAAQAAgAAAAIAAkAAAAQAAkAAAAIAAoAAAAQAAoAAAAIAAsAAAAQAAsAAAAIAAwAAAARAAgAAAAJAAkAAAARAAkAAAAJAAoAAAARAAoAAAAJAAsAAAARAAsAAAAJAAwAAAAJAAwAAAADAA4AAAAKAAsAAAAEAA0AAAAKAAwAAAAEAA4AAAAMAAsAAAAGAA0AAAAMAAwAAAAGAA4AAAANAAsAAAAIAA0AAAANAAwAAAAIAA4AAAALAAsAAAAFAA0AAAALAAwAAAAFAA4AAAALAAkAAAADAAoAAAAMAAkAAAAEAAoAAAA=")
 tile_set = SubResource("TileSet_tgsk8")
 
-[node name="Player" parent="." instance=ExtResource("4_fufq8")]
-position = Vector2(1196, 444)
+[node name="Player" parent="." instance=ExtResource("4_nn4lg")]
+position = Vector2(431, 385)
 scale = Vector2(2.5, 2.5)
 
-[node name="YouWon" type="Area2D" parent="."]
-position = Vector2(-29, 61)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="YouWon"]
-position = Vector2(749, 480)
-shape = SubResource("RectangleShape2D_cfpfi")
-
-[node name="Control" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="RichTextLabel" type="RichTextLabel" parent="Control"]
-layout_mode = 1
+[node name="RichTextLabel3" type="RichTextLabel" parent="."]
 anchors_preset = -1
-anchor_left = 0.381
-anchor_top = 0.236
-anchor_right = 0.381
-anchor_bottom = 0.236
-offset_left = 1146.76
-offset_top = 132.56
-offset_right = 1738.76
-offset_bottom = 388.56
+anchor_bottom = 0.034
+offset_left = 768.0
+offset_top = 328.0
+offset_right = 1682.0
+offset_bottom = 629.968
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 7
-theme_override_fonts/normal_font = ExtResource("5_cfpfi")
-theme_override_font_sizes/normal_font_size = 100
-bbcode_enabled = true
-scroll_active = false
-horizontal_alignment = 1
-vertical_alignment = 1
-script = ExtResource("5_fufq8")
+theme_override_constants/outline_size = 13
+theme_override_fonts/normal_font = ExtResource("5_xvfcf")
+theme_override_font_sizes/normal_font_size = 50
+theme_override_styles/fill = SubResource("StyleBoxFlat_tgsk8")
+text = "This way! ->"
+script = ExtResource("7_b0653")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -781,15 +766,52 @@ tile_set = SubResource("TileSet_3f8g8")
 [node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer"]
 anchors_preset = -1
 anchor_bottom = 0.034
-offset_left = 138.0
-offset_top = 61.0
-offset_right = 1052.0
-offset_bottom = 362.968
+offset_left = 144.0
+offset_top = 48.0
+offset_right = 1058.0
+offset_bottom = 349.968
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 13
-theme_override_fonts/normal_font = ExtResource("5_cfpfi")
+theme_override_fonts/normal_font = ExtResource("5_xvfcf")
 theme_override_font_sizes/normal_font_size = 50
 theme_override_styles/fill = SubResource("StyleBoxFlat_tgsk8")
-text = "! Quest: Go Back Home!"
+text = "! Quest: Defeat the Mighty Orc"
 
-[connection signal="body_entered" from="YouWon" to="." method="_on_you_won_body_entered"]
+[node name="RichTextLabel2" type="RichTextLabel" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_bottom = 0.034
+offset_left = 120.0
+offset_top = 104.0
+offset_right = 1034.0
+offset_bottom = 405.968
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 13
+theme_override_fonts/normal_font = ExtResource("5_xvfcf")
+theme_override_font_sizes/normal_font_size = 35
+theme_override_styles/fill = SubResource("StyleBoxFlat_tgsk8")
+text = "Leave Home  ->"
+horizontal_alignment = 1
+
+[node name="ToNextLevel" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ToNextLevel"]
+position = Vector2(1162, 176)
+shape = SubResource("SegmentShape2D_b0653")
+
+[node name="WorldBoundaries" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBoundaries"]
+position = Vector2(640, 248)
+rotation = 3.14159
+shape = SubResource("WorldBoundaryShape2D_ut1wg")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="WorldBoundaries"]
+position = Vector2(528, 536)
+shape = SubResource("WorldBoundaryShape2D_ut1wg")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="WorldBoundaries"]
+position = Vector2(120, 376)
+rotation = 1.5708
+shape = SubResource("WorldBoundaryShape2D_ut1wg")
+
+[connection signal="body_entered" from="ToNextLevel" to="." method="_on_to_next_level_body_entered"]
