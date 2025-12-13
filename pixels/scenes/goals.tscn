@@ -1,14 +1,14 @@
-[gd_scene load_steps=8 format=4 uid="uid://dl6l5mc7llecd"]
+[gd_scene load_steps=9 format=4 uid="uid://dl6l5mc7llecd"]
 
-[ext_resource type="Script" uid="uid://cj15xvru8nahd" path="res://scripts/health_component.gd" id="1_a1tyf"]
-[ext_resource type="Texture2D" uid="uid://2dhfltmqtyw4" path="res://assets/UiCozyFree.png" id="2_ur5e7"]
-[ext_resource type="FontFile" uid="uid://d3uyqpog4e48d" path="res://fonts/VCR_OSD_MONO_1.001.ttf" id="3_vb46k"]
+[ext_resource type="Script" uid="uid://cj15xvru8nahd" path="res://scripts/health_component.gd" id="1_crtid"]
+[ext_resource type="Texture2D" uid="uid://2dhfltmqtyw4" path="res://assets/UiCozyFree.png" id="2_eqgb2"]
+[ext_resource type="FontFile" uid="uid://d3uyqpog4e48d" path="res://fonts/VCR_OSD_MONO_1.001.ttf" id="3_ibicj"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xihqu"]
 bg_color = Color(0, 0, 0, 1)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wopwq"]
-texture = ExtResource("2_ur5e7")
+texture = ExtResource("2_eqgb2")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -244,10 +244,15 @@ sources/0 = SubResource("TileSetAtlasSource_wopwq")
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eoy4g"]
 bg_color = Color(0.286275, 0.627451, 0.898039, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ur5e7"]
+bg_color = Color(0.673031, 0.413077, 0.387277, 1)
+corner_radius_top_left = 20
+corner_radius_bottom_right = 20
+
 [node name="goals" type="Control"]
 layout_mode = 3
 anchors_preset = 0
-script = ExtResource("1_a1tyf")
+script = ExtResource("1_crtid")
 
 [node name="Panel" type="Panel" parent="."]
 offset_left = -728.0
@@ -272,7 +277,7 @@ offset_right = 944.0
 offset_bottom = 263.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 13
-theme_override_fonts/normal_font = ExtResource("3_vb46k")
+theme_override_fonts/normal_font = ExtResource("3_ibicj")
 theme_override_font_sizes/normal_font_size = 50
 theme_override_styles/fill = SubResource("StyleBoxFlat_eoy4g")
 text = "Your Goal:"
@@ -289,7 +294,7 @@ offset_right = 953.0
 offset_bottom = 475.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 13
-theme_override_fonts/normal_font = ExtResource("3_vb46k")
+theme_override_fonts/normal_font = ExtResource("3_ibicj")
 theme_override_font_sizes/normal_font_size = 50
 theme_override_styles/fill = SubResource("StyleBoxFlat_eoy4g")
 text = "Defeat the Orc"
@@ -306,7 +311,7 @@ offset_right = 958.0
 offset_bottom = 354.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 13
-theme_override_fonts/normal_font = ExtResource("3_vb46k")
+theme_override_fonts/normal_font = ExtResource("3_ibicj")
 theme_override_font_sizes/normal_font_size = 50
 theme_override_styles/fill = SubResource("StyleBoxFlat_eoy4g")
 text = "Complete All Levels"
@@ -323,9 +328,21 @@ offset_right = 949.0
 offset_bottom = 599.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 13
-theme_override_fonts/normal_font = ExtResource("3_vb46k")
+theme_override_fonts/normal_font = ExtResource("3_ibicj")
 theme_override_font_sizes/normal_font_size = 50
 theme_override_styles/fill = SubResource("StyleBoxFlat_eoy4g")
 text = "Don't Die!"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 843.0
+offset_top = 526.0
+offset_right = 973.0
+offset_bottom = 575.0
+theme_override_fonts/font = ExtResource("3_ibicj")
+theme_override_styles/normal = SubResource("StyleBoxFlat_ur5e7")
+text = "Next"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
