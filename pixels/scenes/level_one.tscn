@@ -1,10 +1,11 @@
-[gd_scene load_steps=13 format=4 uid="uid://bfpgcj32nxv7s"]
+[gd_scene load_steps=15 format=4 uid="uid://bfpgcj32nxv7s"]
 
 [ext_resource type="PackedScene" uid="uid://cfy204ca81v35" path="res://scenes/player.tscn" id="1_cd1xg"]
 [ext_resource type="Script" uid="uid://byo67e2jg8nyi" path="res://scripts/level_one.gd" id="1_t18mc"]
 [ext_resource type="Texture2D" uid="uid://bm3om8th0suwd" path="res://images/Document.png" id="2_843q2"]
 [ext_resource type="Texture2D" uid="uid://2dhfltmqtyw4" path="res://assets/UiCozyFree.png" id="4_r4wdr"]
 [ext_resource type="FontFile" uid="uid://d3uyqpog4e48d" path="res://fonts/VCR_OSD_MONO_1.001.ttf" id="5_bhu28"]
+[ext_resource type="Script" uid="uid://xfaoky2m4b5b" path="res://scripts/move_label.gd" id="6_bhu28"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_r4wdr"]
 distance = 1172.0
@@ -256,6 +257,9 @@ bg_color = Color(0.286275, 0.627451, 0.898039, 1)
 a = Vector2(471, 325)
 b = Vector2(474, -158)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y8ti4"]
+bg_color = Color(0.286275, 0.627451, 0.898039, 1)
+
 [node name="level_one" type="Node2D"]
 script = ExtResource("1_t18mc")
 
@@ -343,6 +347,21 @@ position = Vector2(1152, 0)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ToNextLevel"]
 position = Vector2(680, 244)
 shape = SubResource("SegmentShape2D_r4wdr")
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="."]
+anchors_preset = -1
+anchor_bottom = 0.034
+offset_left = 800.0
+offset_top = 356.0
+offset_right = 1714.0
+offset_bottom = 657.968
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 13
+theme_override_fonts/normal_font = ExtResource("5_bhu28")
+theme_override_font_sizes/normal_font_size = 50
+theme_override_styles/fill = SubResource("StyleBoxFlat_y8ti4")
+text = "This way! ->"
+script = ExtResource("6_bhu28")
 
 [connection signal="body_entered" from="RightFirstPanelBoundary" to="." method="_on_right_first_panel_boundary_body_entered"]
 [connection signal="body_entered" from="ToNextLevel" to="." method="_on_to_next_level_body_entered"]

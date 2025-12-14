@@ -25,10 +25,13 @@ func show_goals(): # Showing each goal after 3.5 secs to match up with the music
 	defeatOrc.visible = true
 	await get_tree().create_timer(3.5).timeout
 	dontDie.visible = true
-	
+	await get_tree().create_timer(3.5).timeout
+	next_button_appear()
+
 func next_button_appear():
-	pass
+	button.visible = true
+	button.disabled = false
 
 func _on_button_pressed() -> void:
-	pass # Replace with function body.
-#ac6963
+	get_tree().change_scene_to_file("res://scenes/level_two.tscn")
+	#ac6963

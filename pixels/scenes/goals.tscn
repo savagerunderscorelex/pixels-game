@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=4 uid="uid://dl6l5mc7llecd"]
+[gd_scene load_steps=11 format=4 uid="uid://dl6l5mc7llecd"]
 
 [ext_resource type="Script" uid="uid://cj15xvru8nahd" path="res://scripts/health_component.gd" id="1_crtid"]
 [ext_resource type="Texture2D" uid="uid://2dhfltmqtyw4" path="res://assets/UiCozyFree.png" id="2_eqgb2"]
@@ -244,6 +244,16 @@ sources/0 = SubResource("TileSetAtlasSource_wopwq")
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eoy4g"]
 bg_color = Color(0.286275, 0.627451, 0.898039, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_crtid"]
+bg_color = Color(0.67451, 0.411765, 0.388235, 1)
+corner_radius_top_left = 20
+corner_radius_bottom_right = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eqgb2"]
+bg_color = Color(0.491857, 0.280753, 0.262742, 1)
+corner_radius_top_left = 20
+corner_radius_bottom_right = 20
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ur5e7"]
 bg_color = Color(0.673031, 0.413077, 0.387277, 1)
 corner_radius_top_left = 20
@@ -255,6 +265,7 @@ anchors_preset = 0
 script = ExtResource("1_crtid")
 
 [node name="Panel" type="Panel" parent="."]
+layout_mode = 0
 offset_left = -728.0
 offset_top = -440.0
 offset_right = -688.0
@@ -342,6 +353,8 @@ offset_top = 526.0
 offset_right = 973.0
 offset_bottom = 575.0
 theme_override_fonts/font = ExtResource("3_ibicj")
+theme_override_styles/hover = SubResource("StyleBoxFlat_crtid")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_eqgb2")
 theme_override_styles/normal = SubResource("StyleBoxFlat_ur5e7")
 text = "Next"
 
