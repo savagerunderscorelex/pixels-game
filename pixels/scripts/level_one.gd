@@ -1,9 +1,13 @@
 extends Node2D
 
 @onready var secondCamera = $SecondPanelCamera # Camera that is focused on the second background
-
+@onready var thirdCamera = $ThirdPanelCamera
+@onready var fourthCamera = $FourthPanelCamera
 func _ready() -> void:
-	secondCamera.set_enabled(false) # Is not enabled at the start of the scene loading, since the character has to walk throughout the whole scene
+	secondCamera.set_enabled(false)
+	thirdCamera.set_enabled(false)
+	fourthCamera.set_enabled(false) # Is not enabled at the start of the scene loading, since the character has to walk throughout the whole scene
+	
 	$Player.CHARACTER_SPEED = 190 # Made character slower to originally match with timing for the video
 
 func _on_right_first_panel_boundary_body_entered(body: Node2D) -> void: # When the player enters this area, the camera is changed

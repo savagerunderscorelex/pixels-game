@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=4 uid="uid://bcybpeexr7of0"]
+[gd_scene load_steps=13 format=4 uid="uid://bcybpeexr7of0"]
 
 [ext_resource type="Script" uid="uid://byo67e2jg8nyi" path="res://scripts/level_one.gd" id="1_4yacq"]
 [ext_resource type="Texture2D" uid="uid://bm3om8th0suwd" path="res://images/Document.png" id="2_mmtqo"]
 [ext_resource type="PackedScene" uid="uid://cfy204ca81v35" path="res://scenes/player.tscn" id="3_l7e5k"]
 [ext_resource type="Texture2D" uid="uid://2dhfltmqtyw4" path="res://assets/UiCozyFree.png" id="4_kp5rg"]
 [ext_resource type="FontFile" uid="uid://d3uyqpog4e48d" path="res://fonts/VCR_OSD_MONO_1.001.ttf" id="5_1e7uk"]
+[ext_resource type="PackedScene" uid="uid://djyqoi100mjxk" path="res://scenes/log.tscn" id="6_mmtqo"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_r4wdr"]
 distance = 1172.0
@@ -265,6 +266,16 @@ position = Vector2(1728, 324)
 scale = Vector2(3, 2.89286)
 texture = ExtResource("2_mmtqo")
 
+[node name="Background3" type="Sprite2D" parent="."]
+position = Vector2(2880, 324)
+scale = Vector2(3, 2.89286)
+texture = ExtResource("2_mmtqo")
+
+[node name="Background4" type="Sprite2D" parent="."]
+position = Vector2(4048, 324)
+scale = Vector2(3.08706, 2.89286)
+texture = ExtResource("2_mmtqo")
+
 [node name="Player" parent="." instance=ExtResource("3_l7e5k")]
 position = Vector2(57, 494)
 scale = Vector2(2.7576, 2.67487)
@@ -286,6 +297,14 @@ shape = SubResource("WorldBoundaryShape2D_55s7s")
 [node name="SecondPanelCamera" type="Camera2D" parent="."]
 position = Vector2(1728, 324)
 scale = Vector2(10.6153, 10.2626)
+
+[node name="ThirdPanelCamera" type="Camera2D" parent="."]
+position = Vector2(2888, 328)
+scale = Vector2(112.685, 105.321)
+
+[node name="FourthPanelCamera" type="Camera2D" parent="."]
+position = Vector2(4048, 324)
+scale = Vector2(108.069, 118.674)
 
 [node name="RightFirstPanelBoundary" type="Area2D" parent="."]
 position = Vector2(1152, 0)
@@ -315,7 +334,7 @@ theme_override_constants/outline_size = 13
 theme_override_fonts/normal_font = ExtResource("5_1e7uk")
 theme_override_font_sizes/normal_font_size = 50
 theme_override_styles/fill = SubResource("StyleBoxFlat_4p75b")
-text = "! Quest: Go Forward!"
+text = "! Quest: Avoid the Logs!"
 horizontal_alignment = 1
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="CanvasLayer"]
@@ -330,12 +349,24 @@ theme_override_constants/outline_size = 13
 theme_override_fonts/normal_font = ExtResource("5_1e7uk")
 theme_override_font_sizes/normal_font_size = 35
 theme_override_styles/fill = SubResource("StyleBoxFlat_4p75b")
-text = "Starting Off Easy"
+text = "Touching them resets the level!"
 horizontal_alignment = 1
 
 [node name="ToNextLevel" type="Area2D" parent="."]
 position = Vector2(1152, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ToNextLevel"]
+
+[node name="log" parent="." instance=ExtResource("6_mmtqo")]
+position = Vector2(264, 544)
+scale = Vector2(2, 2)
+
+[node name="log2" parent="." instance=ExtResource("6_mmtqo")]
+position = Vector2(600, 552)
+scale = Vector2(2, 2)
+
+[node name="log3" parent="." instance=ExtResource("6_mmtqo")]
+position = Vector2(984, 552)
+scale = Vector2(2, 2)
 
 [connection signal="body_entered" from="RightFirstPanelBoundary" to="." method="_on_right_first_panel_boundary_body_entered"]
