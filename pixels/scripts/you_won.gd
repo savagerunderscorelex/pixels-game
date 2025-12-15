@@ -2,10 +2,7 @@ extends Node2D
 
 @onready var player: CharacterBody2D = $Player
 @onready var wonMessage: RichTextLabel = $Control/RichTextLabel
-@onready var areasss = $YouWon
-
-func _ready() -> void:
-	pass
+@onready var areasss: Area2D = $YouWon
 
 func _physics_process(delta: float) -> void:
 	self.add_to_group("Boss Areas")

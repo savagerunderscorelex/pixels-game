@@ -8,7 +8,7 @@ extends Control
 @onready var button : Button = $Button
 
 
-func _ready() -> void:
+func _ready() -> void: # Makes all the labels and the buttons not visible
 	completeLevels.visible = false
 	defeatOrc.visible = false
 	dontDie.visible = false
@@ -28,10 +28,10 @@ func show_goals(): # Showing each goal after 3.5 secs to match up with the music
 	await get_tree().create_timer(3.5).timeout
 	next_button_appear()
 
-func next_button_appear():
+func next_button_appear(): # Makes the next button visible and clickable
 	button.visible = true
 	button.disabled = false
 
 func _on_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/level_two.tscn")
-	#ac6963
+	#ac6963 -> color for ui

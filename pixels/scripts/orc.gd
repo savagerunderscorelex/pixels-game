@@ -5,8 +5,8 @@ extends CharacterBody2D
 
 @onready var animator: AnimatedSprite2D = $Animator
 @onready var attacker: AnimationPlayer = $AnimationPlayer
-@onready var hitbox: Area2D = $AxeHitbox
-
+@onready var hitbox: Area2D = $AxeHitbox 
+var isDead: bool = false
 
 var CHARACTER_SPEED: int = 150
 var isAttacking: bool = false
@@ -14,12 +14,15 @@ var player = null
 var health: int = 60
 
 func _ready() -> void:
-	self.add_to_group("Enemies")
+	self.add_to_group("Enemies") # For Sword Processing
 
 func _physics_process(delta: float) -> void:
 	update_animation()
-	move_to_player()
-	move_and_slide()
+	check_for_dead() # Check if orc is dead
+	health_function()
+
+	move_to_player() # Chase feature
+	move_and_slide() # Physics stuff
 	
 func _on_player_detection_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
@@ -31,22 +34,34 @@ func _on_player_detection_body_exited(body: Node2D) -> void:
 		"Player":
 			player = null
 
-func flip_self():
+func flip_self(): # Flipping the orc based on where the player is
 	if player.position.x <= 0:
 		animator.flip_h = true
 		get_node("AxeHitbox").set_scale(Vector2(-1, 1))
 	elif player.position.x > 0:
 		animator.flip_h = false
 		get_node("AxeHitbox").set_scale(Vector2(1, 1))
-	
+
+func check_for_dead():
+	if isDead == true:
+		velocity = velocity * 0
+		animator.pause()
+		attacker.play("death")
+		
 func do_attack():
 	if isAttacking == true:
 		print("too close now!") # debug :(
 		velocity = velocity * 0	
 
+func health_function():
+	if health <= 0:
+		isDead = true
+		await get_tree().create_timer(2).timeout
+		self.queue_free()
+		
 func update_animation():
-	if isAttacking == false:
-		if velocity == Vector2(0,0):
+	if isAttacking == false && isDead == false: # Not attacking
+		if velocity == Vector2(0,0): # If orc is still
 			animator.play("idle")
 		else:
 			if player:
@@ -57,6 +72,8 @@ func update_animation():
 					animator.flip_h = false
 					get_node("AxeHitbox").set_scale(Vector2(1, 1))
 				animator.play("walk")
+	elif isDead == true:
+		attacker.play("death")
 	else: 
 		attacker.play("attack")
 
@@ -84,6 +101,3 @@ func _on_axe_hitbox_area_entered(area: Area2D) -> void:
 func take_damage(attack: Attack):
 	health -= attack.attack_damage
 	print("taken damage!")
-	
-	if health <= 0:
-		self.queue_free()

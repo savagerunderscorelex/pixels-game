@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://cggw6soxf8f37"]
+[gd_scene load_steps=40 format=3 uid="uid://cggw6soxf8f37"]
 
 [ext_resource type="Script" uid="uid://by40aesarj01w" path="res://scripts/orc.gd" id="1_s5mlm"]
 [ext_resource type="Texture2D" uid="uid://buu13qwg36hid" path="res://assets/Orc.png" id="2_nvs4g"]
@@ -280,23 +280,52 @@ tracks/2/keys = {
 "values": [true, false, true]
 }
 
+[sub_resource type="Animation" id="Animation_nvs4g"]
+resource_name = "death"
+length = 2.0
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"death"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qp0yf"]
 _data = {
 &"RESET": SubResource("Animation_8a5gh"),
-&"attack": SubResource("Animation_v64p0")
+&"attack": SubResource("Animation_v64p0"),
+&"death": SubResource("Animation_nvs4g")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bviuh"]
-size = Vector2(31.9463, 21.3434)
+size = Vector2(23.8878, 14.6532)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_s5mlm"]
-size = Vector2(25.3137, 21.4927)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_duj3f"]
+size = Vector2(4.50559, 9.01643)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_q5uja"]
-size = Vector2(89.8849, 67.8069)
+[sub_resource type="CircleShape2D" id="CircleShape2D_nvs4g"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xme4o"]
-size = Vector2(79, 64)
+size = Vector2(79, 73.812)
 
 [node name="Orc" type="CharacterBody2D"]
 floor_stop_on_slope = false
@@ -327,17 +356,19 @@ position = Vector2(4, 7)
 scale = Vector2(3.00384, 3.48047)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AxeHitbox"]
-position = Vector2(25.9732, -0.328285)
+position = Vector2(36.3532, 5.17171)
+scale = Vector2(1.22084, 0.82635)
 shape = SubResource("RectangleShape2D_bviuh")
 disabled = true
 
 [node name="AttackRange" type="Area2D" parent="."]
 position = Vector2(4, 7)
-scale = Vector2(3.00384, 3.48047)
+scale = Vector2(5.52995, -7.95462)
 
 [node name="AttackRangeCollision" type="CollisionShape2D" parent="AttackRange"]
-position = Vector2(0.998721, -0.287317)
-shape = SubResource("RectangleShape2D_s5mlm")
+position = Vector2(1.35625, 0)
+scale = Vector2(4.13394, 1.25484)
+shape = SubResource("RectangleShape2D_duj3f")
 
 [node name="PlayerDetection" type="Area2D" parent="."]
 position = Vector2(4, 7)
@@ -345,7 +376,8 @@ scale = Vector2(3.00384, 3.48047)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetection"]
 position = Vector2(2.99616, 1.43659)
-shape = SubResource("RectangleShape2D_q5uja")
+scale = Vector2(-2.83272, 2.39618)
+shape = SubResource("CircleShape2D_nvs4g")
 
 [node name="SwordSlashEffect" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_nvs4g")
@@ -353,7 +385,8 @@ stream = ExtResource("5_nvs4g")
 [node name="Hurtbox" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
-position = Vector2(6.5, 6)
+position = Vector2(15, 10)
+scale = Vector2(1.25311, 1.148)
 shape = SubResource("RectangleShape2D_xme4o")
 
 [connection signal="area_entered" from="AxeHitbox" to="." method="_on_axe_hitbox_area_entered"]

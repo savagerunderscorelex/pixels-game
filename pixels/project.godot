@@ -15,10 +15,6 @@ run/main_scene="uid://b8gtr3bukmtej"
 config/features=PackedStringArray("4.4", "Mobile")
 config/icon="res://icon.svg"
 
-[autoload]
-
-Autoload="*res://scenes/autoload.tscn"
-
 [display]
 
 window/size/always_on_top=true

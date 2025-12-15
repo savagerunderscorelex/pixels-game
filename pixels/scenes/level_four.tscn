@@ -15,7 +15,7 @@ distance = 1172.0
 a = Vector2(144, 0)
 b = Vector2(-288, 0)
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r4wdr"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wl4gn"]
 texture = ExtResource("4_t0tbu")
 0:0/0 = 0
 1:0/0 = 0
@@ -247,7 +247,7 @@ texture = ExtResource("4_t0tbu")
 13:15/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_bhu28"]
-sources/0 = SubResource("TileSetAtlasSource_r4wdr")
+sources/0 = SubResource("TileSetAtlasSource_wl4gn")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4p75b"]
 bg_color = Color(0.286275, 0.627451, 0.898039, 1)
