@@ -73,13 +73,14 @@ func update_animation():
 					get_node("AxeHitbox").set_scale(Vector2(1, 1))
 				animator.play("walk")
 	elif isDead == true:
+		velocity = Vector2.ZERO
 		attacker.play("death")
 	else: 
 		attacker.play("attack")
 
 func move_to_player():
 	velocity = Vector2.ZERO
-	if player && isAttacking == false:
+	if player && isAttacking == false && isDead == false:
 		velocity = position.direction_to(player.position) * CHARACTER_SPEED
 		flip_self()
 

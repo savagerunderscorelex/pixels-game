@@ -16,7 +16,6 @@ func _physics_process(delta: float) -> void:
 	self.add_to_group("Boss Areas")
 	reset_player_physics()
 	change_animations()
-	check_for_orc()
 	
 	if currentOrc != null:
 		var orcHealth = currentOrc.health
@@ -37,6 +36,3 @@ func change_animations():
 	elif player.velocity.x == 0 && player.velocity.y == 0:
 		if player.isAttacking == false:
 			player.animator.play("idle")
-
-func check_for_orc():	
-	pass
