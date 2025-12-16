@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://b8gtr3bukmtej"]
+[gd_scene load_steps=20 format=4 uid="uid://b8gtr3bukmtej"]
 
 [ext_resource type="Script" uid="uid://4spxk7gvmbvq" path="res://scripts/boss_level.gd" id="1_8q0yx"]
 [ext_resource type="Texture2D" uid="uid://bys2302ybxokn" path="res://images/battleback1.png" id="2_dnfp7"]
@@ -501,6 +501,27 @@ sources/0 = SubResource("TileSetAtlasSource_lyfqi")
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8b5o6"]
 bg_color = Color(0.286275, 0.627451, 0.898039, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lyfqi"]
+bg_color = Color(0.67451, 0.411765, 0.388235, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vbn7p"]
+bg_color = Color(0.67451, 0.411765, 0.388235, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_egujr"]
+bg_color = Color(0.67451, 0.411765, 0.388235, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
 [node name="boss_level" type="Node2D"]
 script = ExtResource("1_8q0yx")
 
@@ -653,3 +674,30 @@ text = "Level 3
 shortcut_keys_enabled = false
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Button" type="Button" parent="CanvasLayer"]
+visible = false
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.519
+anchor_bottom = 0.5
+offset_left = -272.0
+offset_top = -25.0
+offset_right = -10.8881
+offset_bottom = 26.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("6_vbn7p")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/focus = SubResource("StyleBoxFlat_lyfqi")
+theme_override_styles/hover = SubResource("StyleBoxFlat_vbn7p")
+theme_override_styles/normal = SubResource("StyleBoxFlat_egujr")
+disabled = true
+text = "You died! Reset Level"
+
+[connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_button_pressed"]

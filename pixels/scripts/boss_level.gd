@@ -7,6 +7,7 @@ extends Node2D
 @onready var orcHealthDisplay: RichTextLabel = $Orc/ProgressBar/RichTextLabel2
 @onready var playerHealthBar: ProgressBar = $Player/ProgressBar
 @onready var playerHealthDisplay: RichTextLabel = $Player/ProgressBar/RichTextLabel2
+@onready var resetButton: Button = $CanvasLayer/Button
 
 func _ready() -> void:
 	if get_tree().get_first_node_in_group("Enemies") == $Orc:
@@ -48,5 +49,13 @@ func change_animations():
 			elif player.velocity.x == 0 && player.velocity.y == 0:
 				if player.isAttacking == false:
 					player.animator.play("idle")
+	else:
+		await get_tree().create_timer(3).timeout
+		resetButton.disabled = false
+		resetButton.visible = true
 		
 	
+
+
+func _on_button_pressed() -> void:
+	get_tree().call_deferred("reload_current_scene")
