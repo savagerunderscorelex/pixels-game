@@ -12,6 +12,7 @@ var CHARACTER_SPEED: int = 150
 var isAttacking: bool = false
 var player = null
 var health: int = 60
+var attack_damage: int = 25
 
 func _ready() -> void:
 	self.add_to_group("Enemies") # For Sword Processing
@@ -93,12 +94,18 @@ func _on_attack_range_body_exited(body: Node2D) -> void:
 	if body.name == "Player":
 		await get_tree().create_timer(1).timeout
 		isAttacking = false
-
-func _on_axe_hitbox_area_entered(area: Area2D) -> void:
-	if area.is_in_group("Player Areas"): # Original issue was that the orc hurtbox and player hurtbox had the same name
-		$SwordSlashEffect.play()
-		print("heehee you've been hit, fellow player >:)")
 		
 func take_damage(attack: Attack):
 	health -= attack.attack_damage
 	print("taken damage!")
+
+
+func _on_axe_hitbox_body_entered(body: Node2D) -> void:
+	if body.name == "Player" && body.has_method("take_damage"): # Original issue was that the orc hurtbox and player hurtbox had the same name
+		var attack = Attack.new()
+		attack.attack_damage = attack_damage
+
+		body.take_damage(attack)
+		
+		$SwordSlashEffect.play()
+		print("heehee you've been hit, fellow player >:)")

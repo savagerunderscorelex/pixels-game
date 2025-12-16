@@ -389,7 +389,7 @@ position = Vector2(15, 10)
 scale = Vector2(1.25311, 1.148)
 shape = SubResource("RectangleShape2D_xme4o")
 
-[connection signal="area_entered" from="AxeHitbox" to="." method="_on_axe_hitbox_area_entered"]
+[connection signal="body_entered" from="AxeHitbox" to="." method="_on_axe_hitbox_body_entered"]
 [connection signal="body_entered" from="AttackRange" to="." method="_on_attack_range_body_entered"]
 [connection signal="body_exited" from="AttackRange" to="." method="_on_attack_range_body_exited"]
 [connection signal="body_entered" from="PlayerDetection" to="." method="_on_player_detection_body_entered"]

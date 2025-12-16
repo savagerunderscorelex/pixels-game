@@ -7,6 +7,8 @@ var isAttacking = false
 var isFlippedAttack = false
 var inBossArea = false
 var attack_damage: int = 20
+var health = 100
+var isDead: bool = false
 
 
 @onready var hitbox = $SwordHitboxArea
@@ -14,7 +16,7 @@ var attack_damage: int = 20
 @onready var attacker: AnimationPlayer = $AnimationPlayer
 @onready var swordSlashEffect: AudioStreamPlayer = $SwordSlashEffect
 @onready var swordSwingEffect: AudioStreamPlayer = $SwordSwingSound
-@onready var currentLevel: Node2D = get_parent()
+@onready var currentLevel = get_parent()
 @onready var hurtbox: Area2D = $Hurtbox
 
 func _ready() -> void:
@@ -23,6 +25,7 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void: # This function takes a float as an input
 	get_input()
 	update_areas()
+	check_health()
 	update_movement(delta)
 	update_animation()
 	move_and_slide() # Can only be used in a Character2D Node
@@ -44,7 +47,7 @@ func update_movement(delta: float) -> void:
 	velocity.y += GRAVITY * delta
 
 func update_animation() -> void:
-	if isAttacking == false:
+	if isAttacking == false && isDead == false:
 		if velocity.x == 0 && inBossArea == false: # Checks if the player is not moving, since the range for directions is -1 to 1, and 0 is no movement
 			animator.play("idle") # Makes the current animation the idle animation
 		elif velocity.x < 0: # After like an hour of reading godot forums, I got this to work. I didn't follow the tutorial version because it's code would shrink my sprite when it turned left or right
@@ -55,6 +58,10 @@ func update_animation() -> void:
 			animator.play("walk")
 			animator.flip_h = false # Makes the sprite go back to the original position
 			get_node('SwordHitboxArea').set_scale(Vector2(1, 1)) # resets x position of the sword hitbox
+	elif isDead == true:
+		velocity = Vector2.ZERO
+		animator.play("dead")
+		
 	else:
 		# Remember (since I had an issue with this earlier): When an if statement is done resolving, it will go to the code next under it
 		# I had an issue where I would put the play code in each part of the if statement when it wasn't necessary
@@ -79,3 +86,13 @@ func _on_sword_hitbox_area_body_entered(body: Node2D) -> void:
 		
 		swordSlashEffect.play()
 		print("hit enemy!")
+
+func take_damage(attack: Attack):
+	health -= attack.attack_damage
+	print("taken damage!")
+
+func check_health():
+	if health <= 0:
+		isDead = true
+		await get_tree().create_timer(2).timeout
+		self.queue_free()

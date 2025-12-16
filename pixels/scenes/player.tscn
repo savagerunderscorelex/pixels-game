@@ -1,8 +1,9 @@
-[gd_scene load_steps=36 format=3 uid="uid://cfy204ca81v35"]
+[gd_scene load_steps=41 format=3 uid="uid://cfy204ca81v35"]
 
 [ext_resource type="Script" uid="uid://dv7mc3cn51caq" path="res://scripts/player.gd" id="1_3vyb7"]
 [ext_resource type="Texture2D" uid="uid://dbmm12gn3oeqh" path="res://assets/Soldier-Attack01.png" id="2_dqkch"]
 [ext_resource type="Texture2D" uid="uid://bkovwpf6ekh4r" path="res://assets/Soldier-Idle.png" id="2_qhqgy"]
+[ext_resource type="Texture2D" uid="uid://sd4k1onqb70n" path="res://assets/Soldier-Death.png" id="3_fjrip"]
 [ext_resource type="Texture2D" uid="uid://brno4snw35pfc" path="res://assets/Soldier-Walk.png" id="3_qhqgy"]
 [ext_resource type="AudioStream" uid="uid://kwr2hadtvp84" path="res://sounds/sword-sound.mp3" id="5_qlg0r"]
 [ext_resource type="AudioStream" uid="uid://sijg0axjv4jn" path="res://sounds/sword-empty.mp3" id="5_tuyoq"]
@@ -36,6 +37,22 @@ region = Rect2(400, 0, 100, 100)
 [sub_resource type="AtlasTexture" id="AtlasTexture_4ni07"]
 atlas = ExtResource("2_dqkch")
 region = Rect2(500, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l71n6"]
+atlas = ExtResource("3_fjrip")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ke2ow"]
+atlas = ExtResource("3_fjrip")
+region = Rect2(100, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ujl30"]
+atlas = ExtResource("3_fjrip")
+region = Rect2(200, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_31cv2"]
+atlas = ExtResource("3_fjrip")
+region = Rect2(300, 0, 100, 100)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_smehm"]
 atlas = ExtResource("2_qhqgy")
@@ -119,10 +136,22 @@ animations = [{
 "name": &"attack1",
 "speed": 5.0
 }, {
-"frames": [],
-"loop": true,
-"name": &"hurt",
-"speed": 5.0
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l71n6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ke2ow")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ujl30")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_31cv2")
+}],
+"loop": false,
+"name": &"dead",
+"speed": 3.0
 }, {
 "frames": [{
 "duration": 1.0,
