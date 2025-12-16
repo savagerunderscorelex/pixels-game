@@ -9,6 +9,7 @@ var inBossArea = false
 var attack_damage: int = 20
 var health = 100
 var isDead: bool = false
+var isDeadPlaying: bool = false
 
 
 @onready var hitbox = $SwordHitboxArea
@@ -25,7 +26,8 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void: # This function takes a float as an input
 	get_input()
 	update_areas()
-	check_health()
+	if isDead == false:
+		check_health()
 	update_movement(delta)
 	update_animation()
 	move_and_slide() # Can only be used in a Character2D Node
@@ -59,8 +61,13 @@ func update_animation() -> void:
 			animator.flip_h = false # Makes the sprite go back to the original position
 			get_node('SwordHitboxArea').set_scale(Vector2(1, 1)) # resets x position of the sword hitbox
 	elif isDead == true:
-		velocity = Vector2.ZERO
-		animator.play("dead")
+		if isDeadPlaying == true:
+			velocity = Vector2.ZERO
+			animator.play("dead")
+			isDeadPlaying = false
+		await get_tree().create_timer(2).timeout
+		self.queue_free()
+
 		
 	else:
 		# Remember (since I had an issue with this earlier): When an if statement is done resolving, it will go to the code next under it
@@ -71,6 +78,8 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void: #
 	if anim_name == "attack1":
 		print("done attacking")
 		isAttacking = false
+	elif anim_name == "dead":
+		isDeadPlaying = false
 
 func update_areas():
 	hitbox.add_to_group("Sword")
@@ -94,5 +103,4 @@ func take_damage(attack: Attack):
 func check_health():
 	if health <= 0:
 		isDead = true
-		await get_tree().create_timer(2).timeout
-		self.queue_free()
+		isDeadPlaying = true
