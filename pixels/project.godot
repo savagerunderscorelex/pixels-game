@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="pixels"
-run/main_scene="uid://b8gtr3bukmtej"
+run/main_scene="uid://bmnpnkok6xlga"
 config/features=PackedStringArray("4.4", "Mobile")
 config/icon="res://icon.svg"
 
@@ -31,6 +31,7 @@ enabled=PackedStringArray("res://addons/godot_super-wakatime/plugin.cfg")
 Enemies="Other CharacterBody2D nodes which the character has to fight against"
 "Player Areas"="area2D nodes of the player"
 Sword="player's sword"
+Levels="game levels, in groups for debugging"
 
 [input]
 

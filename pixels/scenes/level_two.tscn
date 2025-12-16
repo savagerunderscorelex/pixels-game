@@ -1,6 +1,6 @@
 [gd_scene load_steps=16 format=4 uid="uid://bcybpeexr7of0"]
 
-[ext_resource type="Script" uid="uid://byo67e2jg8nyi" path="res://scripts/level_one.gd" id="1_4yacq"]
+[ext_resource type="Script" uid="uid://b7rmvefktq4a4" path="res://level_two.gd" id="1_mmtqo"]
 [ext_resource type="Texture2D" uid="uid://bm3om8th0suwd" path="res://images/Document.png" id="2_mmtqo"]
 [ext_resource type="PackedScene" uid="uid://cfy204ca81v35" path="res://scenes/player.tscn" id="3_l7e5k"]
 [ext_resource type="Texture2D" uid="uid://2dhfltmqtyw4" path="res://assets/UiCozyFree.png" id="4_kp5rg"]
@@ -490,8 +490,8 @@ sources/0 = SubResource("TileSetAtlasSource_mmtqo")
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_mmtqo"]
 a = Vector2(1, 507)
 
-[node name="level_one" type="Node2D"]
-script = ExtResource("1_4yacq")
+[node name="level_two" type="Node2D"]
+script = ExtResource("1_mmtqo")
 
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(576, 324)

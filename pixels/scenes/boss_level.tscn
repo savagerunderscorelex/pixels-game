@@ -502,15 +502,15 @@ sources/0 = SubResource("TileSetAtlasSource_lyfqi")
 bg_color = Color(0.286275, 0.627451, 0.898039, 1)
 
 [node name="boss_level" type="Node2D"]
-position = Vector2(594, 342)
 script = ExtResource("1_8q0yx")
 
 [node name="Background" type="Sprite2D" parent="."]
-position = Vector2(3.99991, 4.3869e-05)
+position = Vector2(564, 316.001)
 scale = Vector2(1.07971, 1.13366)
 texture = ExtResource("2_dnfp7")
 
 [node name="WorldBoundaryUp" type="StaticBody2D" parent="."]
+position = Vector2(560, 316.001)
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="WorldBoundaryUp"]
 position = Vector2(520, 40)
@@ -539,10 +539,11 @@ shape = SubResource("WorldBoundaryShape2D_5rfim")
 tile_set = SubResource("TileSet_843q2")
 
 [node name="Player" parent="." instance=ExtResource("3_lyfqi")]
-position = Vector2(335, -88)
+position = Vector2(895, 228.001)
 scale = Vector2(2, 2)
 
 [node name="Orc" parent="." instance=ExtResource("5_dnfp7")]
+position = Vector2(560, 316.001)
 scale = Vector2(3, 3)
 
 [node name="ProgressBar" type="ProgressBar" parent="Orc"]
