@@ -1,0 +1,42 @@
+[gd_scene load_steps=4 format=3 uid="uid://dkdd4xqk6mnih"]
+
+[sub_resource type="GDScript" id="GDScript_kpsoi"]
+script/source = "extends Control
+
+@onready var progressBar: ProgressBar = $ProgressBar
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	progressBar.value = 70
+	progressBar.max_value = 100
+"
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3f7q0"]
+bg_color = Color(0.517184, 0.517184, 0.517184, 0.545098)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fk87l"]
+bg_color = Color(0.897105, 0, 0.0767472, 1)
+
+[node name="Stats" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+scale = Vector2(0.840843, 0.891965)
+script = SubResource("GDScript_kpsoi")
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+layout_mode = 0
+offset_left = 86.0
+offset_top = 45.0
+offset_right = 220.0
+offset_bottom = 69.0
+scale = Vector2(3.41336, 2.25)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_styles/background = SubResource("StyleBoxFlat_3f7q0")
+theme_override_styles/fill = SubResource("StyleBoxFlat_fk87l")
+rounded = true

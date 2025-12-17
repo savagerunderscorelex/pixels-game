@@ -733,6 +733,7 @@ position = Vector2(431, 385)
 scale = Vector2(2.5, 2.5)
 
 [node name="RichTextLabel3" type="RichTextLabel" parent="."]
+visible = false
 anchors_preset = -1
 anchor_bottom = 0.034
 offset_left = 768.0
@@ -750,6 +751,7 @@ end = 750
 start = 800
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="TileMapLayer" type="TileMapLayer" parent="CanvasLayer"]
 position = Vector2(40, 40)
