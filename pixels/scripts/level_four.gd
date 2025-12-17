@@ -5,6 +5,7 @@ extends Node2D
 @onready var description = $CanvasLayer/RichTextLabel2
 
 func _ready() -> void:
+	self.add_to_group("Levels")
 	secondCamera.enabled = false
 	
 	$Player.CHARACTER_SPEED = 195 # Made character slower to originally match with timing for the video

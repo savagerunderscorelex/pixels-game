@@ -18,14 +18,13 @@ func _on_right_first_panel_boundary_body_entered(body: Node2D) -> void: # When t
 	if body.name == "Player":
 		secondCamera.enabled = !secondCamera.enabled
 
-
 func _on_to_next_level_body_entered(body: Node2D) -> void: # Changes Scene to Level 2
 	if body.name == "Player":
 		await get_tree().create_timer(1.5).timeout
-		get_tree().change_scene_to_file("res://scenes/boss_level.tscn")
+		get_tree().call_deferred("change_scene_to_file", "res://scenes/boss_level.tscn")
 
 
-func _on_left_third_boundary_body_entered(body: Node2D) -> void:
+func _on_left_third_boundary_body_entered(body: Node2D) -> void: # For second to last section change
 	if body.name == "Player":
 		description.text = "Keep Going!"
 		secondCamera.enabled = !secondCamera.enabled

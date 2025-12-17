@@ -17,7 +17,7 @@ var attack_damage: int = 25
 func _ready() -> void:
 	self.add_to_group("Enemies") # For Sword Processing
 
-func _physics_process() -> void:
+func _physics_process(delta: float) -> void:
 	update_animation()
 	check_for_dead() # Check if orc is dead
 	health_function()

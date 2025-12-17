@@ -260,7 +260,7 @@ b = Vector2(0, 536)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5mgce"]
 bg_color = Color(0.286275, 0.627451, 0.898039, 1)
 
-[node name="level_one" type="Node2D"]
+[node name="level_four" type="Node2D"]
 script = ExtResource("1_wl4gn")
 
 [node name="Background" type="Sprite2D" parent="."]
@@ -353,16 +353,18 @@ shape = SubResource("SegmentShape2D_qlnma")
 [node name="RichTextLabel3" type="RichTextLabel" parent="."]
 anchors_preset = -1
 anchor_bottom = 0.034
+offset_left = 40.0
 offset_top = 297.0
-offset_right = 914.0
+offset_right = 954.0
 offset_bottom = 598.968
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 13
 theme_override_fonts/normal_font = ExtResource("5_krb5l")
 theme_override_font_sizes/normal_font_size = 50
 theme_override_styles/fill = SubResource("StyleBoxFlat_5mgce")
-text = "This way! ->"
+text = "<- Here to Home"
 script = ExtResource("6_qlnma")
+start = 40
 
 [connection signal="body_entered" from="RightFirstPanelBoundary" to="." method="_on_right_first_panel_boundary_body_entered"]
 [connection signal="body_entered" from="ToNextLevel" to="." method="_on_to_next_level_body_entered"]
