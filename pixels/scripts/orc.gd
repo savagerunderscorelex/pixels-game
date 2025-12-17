@@ -17,7 +17,7 @@ var attack_damage: int = 25
 func _ready() -> void:
 	self.add_to_group("Enemies") # For Sword Processing
 
-func _physics_process(delta: float) -> void:
+func _physics_process() -> void:
 	update_animation()
 	check_for_dead() # Check if orc is dead
 	health_function()
@@ -106,6 +106,6 @@ func _on_axe_hitbox_body_entered(body: Node2D) -> void:
 		attack.attack_damage = attack_damage
 
 		body.take_damage(attack)
-		
+
 		$SwordSlashEffect.play()
 		print("heehee you've been hit, fellow player >:)")
