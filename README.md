@@ -9,6 +9,8 @@ Time Spent: ![Hackatime, OOOOOOOOOOOOOOHHHHHHHHHHH](https://hackatime-badge.hack
 
 ## Final Video
 
+Watch the video that accompanied our performance here!: [Pixels: The Game - YouTube](https://youtu.be/zAm4ha6rLfM?si=nqjGRf9aBi3qUUbY)
+
 ## Assets and Guides
 
 ### Game Assets: Character Sprites, Backgrounds, Fonts, etc

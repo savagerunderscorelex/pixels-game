@@ -1,12 +1,14 @@
-[gd_scene load_steps=12 format=4 uid="uid://cslbt1h7ptpyc"]
+[gd_scene load_steps=15 format=4 uid="uid://cslbt1h7ptpyc"]
 
-[ext_resource type="Script" uid="uid://byo67e2jg8nyi" path="res://scripts/level_one.gd" id="1_wl4gn"]
+[ext_resource type="Script" uid="uid://chhsqm5y56tnv" path="res://scripts/level_four.gd" id="1_wl4gn"]
 [ext_resource type="Texture2D" uid="uid://bm3om8th0suwd" path="res://images/Document.png" id="2_qlnma"]
 [ext_resource type="PackedScene" uid="uid://cfy204ca81v35" path="res://scenes/player.tscn" id="3_5mgce"]
 [ext_resource type="Texture2D" uid="uid://2dhfltmqtyw4" path="res://assets/UiCozyFree.png" id="4_t0tbu"]
 [ext_resource type="FontFile" uid="uid://d3uyqpog4e48d" path="res://fonts/VCR_OSD_MONO_1.001.ttf" id="5_krb5l"]
+[ext_resource type="Script" uid="uid://xfaoky2m4b5b" path="res://scripts/move_label.gd" id="6_qlnma"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_r4wdr"]
+normal = Vector2(0.0130387, -0.999915)
 distance = 1172.0
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_55s7s"]
@@ -252,6 +254,12 @@ sources/0 = SubResource("TileSetAtlasSource_wl4gn")
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4p75b"]
 bg_color = Color(0.286275, 0.627451, 0.898039, 1)
 
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_qlnma"]
+b = Vector2(0, 536)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5mgce"]
+bg_color = Color(0.286275, 0.627451, 0.898039, 1)
+
 [node name="level_one" type="Node2D"]
 script = ExtResource("1_wl4gn")
 
@@ -261,15 +269,17 @@ scale = Vector2(3, 2.89286)
 texture = ExtResource("2_qlnma")
 
 [node name="Background2" type="Sprite2D" parent="."]
-position = Vector2(1728, 324)
+position = Vector2(-576, 324)
 scale = Vector2(3, 2.89286)
 texture = ExtResource("2_qlnma")
 
 [node name="Player" parent="." instance=ExtResource("3_5mgce")]
-position = Vector2(57, 494)
+position = Vector2(1064, 504)
 scale = Vector2(2.7576, 2.67487)
 
 [node name="WorldBoundaries" type="StaticBody2D" parent="."]
+position = Vector2(1152, 752)
+rotation = 3.14159
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBoundaries"]
 position = Vector2(-1172, 414)
@@ -284,11 +294,11 @@ position = Vector2(-120, 32)
 shape = SubResource("WorldBoundaryShape2D_55s7s")
 
 [node name="SecondPanelCamera" type="Camera2D" parent="."]
-position = Vector2(1728, 324)
+position = Vector2(-576, 324)
 scale = Vector2(10.6153, 10.2626)
 
 [node name="RightFirstPanelBoundary" type="Area2D" parent="."]
-position = Vector2(1152, 0)
+position = Vector2(0, 56)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RightFirstPanelBoundary"]
 position = Vector2(-1, 313)
@@ -315,7 +325,7 @@ theme_override_constants/outline_size = 13
 theme_override_fonts/normal_font = ExtResource("5_krb5l")
 theme_override_font_sizes/normal_font_size = 50
 theme_override_styles/fill = SubResource("StyleBoxFlat_4p75b")
-text = "! Quest: Go Forward!"
+text = "! Quest: Go Back Home!"
 horizontal_alignment = 1
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="CanvasLayer"]
@@ -330,12 +340,29 @@ theme_override_constants/outline_size = 13
 theme_override_fonts/normal_font = ExtResource("5_krb5l")
 theme_override_font_sizes/normal_font_size = 35
 theme_override_styles/fill = SubResource("StyleBoxFlat_4p75b")
-text = "Starting Off Easy"
+text = "You've defeated the mighty Orc!"
 horizontal_alignment = 1
 
 [node name="ToNextLevel" type="Area2D" parent="."]
-position = Vector2(1152, 0)
+position = Vector2(0, 64)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ToNextLevel"]
+position = Vector2(-1152, 32)
+shape = SubResource("SegmentShape2D_qlnma")
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="."]
+anchors_preset = -1
+anchor_bottom = 0.034
+offset_top = 297.0
+offset_right = 914.0
+offset_bottom = 598.968
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 13
+theme_override_fonts/normal_font = ExtResource("5_krb5l")
+theme_override_font_sizes/normal_font_size = 50
+theme_override_styles/fill = SubResource("StyleBoxFlat_5mgce")
+text = "This way! ->"
+script = ExtResource("6_qlnma")
 
 [connection signal="body_entered" from="RightFirstPanelBoundary" to="." method="_on_right_first_panel_boundary_body_entered"]
+[connection signal="body_entered" from="ToNextLevel" to="." method="_on_to_next_level_body_entered"]

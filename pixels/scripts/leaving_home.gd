@@ -8,6 +8,7 @@ var isScene : bool = true
 	
 func _physics_process(delta: float) -> void:
 	self.add_to_group("Boss Areas")
+	self.add_to_group("Levels")
 	reset_player_physics()
 	change_animations()
 

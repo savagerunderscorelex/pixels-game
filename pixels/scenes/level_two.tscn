@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://bcybpeexr7of0"]
+[gd_scene load_steps=18 format=4 uid="uid://bcybpeexr7of0"]
 
 [ext_resource type="Script" uid="uid://b7rmvefktq4a4" path="res://level_two.gd" id="1_mmtqo"]
 [ext_resource type="Texture2D" uid="uid://bm3om8th0suwd" path="res://images/Document.png" id="2_mmtqo"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://2dhfltmqtyw4" path="res://assets/UiCozyFree.png" id="4_kp5rg"]
 [ext_resource type="FontFile" uid="uid://d3uyqpog4e48d" path="res://fonts/VCR_OSD_MONO_1.001.ttf" id="5_1e7uk"]
 [ext_resource type="PackedScene" uid="uid://djyqoi100mjxk" path="res://scenes/log.tscn" id="6_mmtqo"]
+[ext_resource type="Script" uid="uid://xfaoky2m4b5b" path="res://scripts/move_label.gd" id="7_l7e5k"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_r4wdr"]
 distance = 1172.0
@@ -490,6 +491,9 @@ sources/0 = SubResource("TileSetAtlasSource_mmtqo")
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_mmtqo"]
 a = Vector2(1, 507)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kp5rg"]
+bg_color = Color(0.286275, 0.627451, 0.898039, 1)
+
 [node name="level_two" type="Node2D"]
 script = ExtResource("1_mmtqo")
 
@@ -674,6 +678,23 @@ position = Vector2(3468, -9)
 position = Vector2(-1, 313)
 rotation = -1.5708
 shape = SubResource("SegmentShape2D_5rfim")
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="."]
+anchors_preset = -1
+anchor_bottom = 0.034
+offset_left = 1882.0
+offset_top = 341.0
+offset_right = 2796.0
+offset_bottom = 642.968
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 13
+theme_override_fonts/normal_font = ExtResource("5_1e7uk")
+theme_override_font_sizes/normal_font_size = 50
+theme_override_styles/fill = SubResource("StyleBoxFlat_kp5rg")
+text = "Keep it up! ->"
+script = ExtResource("7_l7e5k")
+end = 1850
+start = 1887
 
 [connection signal="body_entered" from="RightFirstPanelBoundary" to="." method="_on_right_first_panel_boundary_body_entered"]
 [connection signal="body_entered" from="ToNextLevel" to="." method="_on_to_next_level_body_entered"]

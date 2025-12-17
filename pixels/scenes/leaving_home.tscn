@@ -746,6 +746,8 @@ theme_override_font_sizes/normal_font_size = 50
 theme_override_styles/fill = SubResource("StyleBoxFlat_tgsk8")
 text = "This way! ->"
 script = ExtResource("7_b0653")
+end = 750
+start = 800
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

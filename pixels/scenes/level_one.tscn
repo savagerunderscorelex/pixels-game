@@ -622,6 +622,25 @@ theme_override_font_sizes/normal_font_size = 50
 theme_override_styles/fill = SubResource("StyleBoxFlat_y8ti4")
 text = "This way! ->"
 script = ExtResource("6_bhu28")
+end = 700
+start = 800
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="."]
+anchors_preset = -1
+anchor_bottom = 0.034
+offset_left = 1938.0
+offset_top = 356.0
+offset_right = 2852.0
+offset_bottom = 657.968
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 13
+theme_override_fonts/normal_font = ExtResource("5_bhu28")
+theme_override_font_sizes/normal_font_size = 50
+theme_override_styles/fill = SubResource("StyleBoxFlat_y8ti4")
+text = "This way! ->"
+script = ExtResource("6_bhu28")
+end = 1900
+start = 1938
 
 [connection signal="body_entered" from="RightFirstPanelBoundary" to="." method="_on_right_first_panel_boundary_body_entered"]
 [connection signal="body_entered" from="ToNextLevel" to="." method="_on_to_next_level_body_entered"]
