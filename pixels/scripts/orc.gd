@@ -36,10 +36,10 @@ func _on_player_detection_body_exited(body: Node2D) -> void:
 			player = null
 
 func flip_self(): # Flipping the orc based on where the player is
-	if player.position.x <= 0:
+	if player.position.x <= 560:
 		animator.flip_h = true
 		get_node("AxeHitbox").set_scale(Vector2(-1, 1))
-	elif player.position.x > 0:
+	elif player.position.x > 560:
 		animator.flip_h = false
 		get_node("AxeHitbox").set_scale(Vector2(1, 1))
 

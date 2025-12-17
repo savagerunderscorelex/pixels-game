@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://b8gtr3bukmtej"]
+[gd_scene load_steps=23 format=4 uid="uid://b8gtr3bukmtej"]
 
 [ext_resource type="Script" uid="uid://4spxk7gvmbvq" path="res://scripts/boss_level.gd" id="1_8q0yx"]
 [ext_resource type="Texture2D" uid="uid://bys2302ybxokn" path="res://images/battleback1.png" id="2_dnfp7"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cggw6soxf8f37" path="res://scenes/orc.tscn" id="5_dnfp7"]
 [ext_resource type="Texture2D" uid="uid://2dhfltmqtyw4" path="res://assets/UiCozyFree.png" id="5_lyfqi"]
 [ext_resource type="FontFile" uid="uid://d3uyqpog4e48d" path="res://fonts/VCR_OSD_MONO_1.001.ttf" id="6_vbn7p"]
+[ext_resource type="Script" uid="uid://xfaoky2m4b5b" path="res://scripts/move_label.gd" id="7_vbn7p"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_5rfim"]
 normal = Vector2(8.00487e-08, -1)
@@ -522,6 +523,13 @@ corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
 
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_8b5o6"]
+a = Vector2(-5, 596)
+b = Vector2(-4, -29)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_866t6"]
+bg_color = Color(0.286275, 0.627451, 0.898039, 1)
+
 [node name="boss_level" type="Node2D"]
 script = ExtResource("1_8q0yx")
 
@@ -700,4 +708,30 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_egujr")
 disabled = true
 text = "You died! Reset Level"
 
+[node name="ToNextLevel" type="Area2D" parent="."]
+position = Vector2(1152, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ToNextLevel"]
+position = Vector2(-16, 41)
+shape = SubResource("SegmentShape2D_8b5o6")
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="."]
+visible = false
+anchors_preset = -1
+anchor_bottom = 0.034
+offset_left = 720.0
+offset_top = 276.0
+offset_right = 1634.0
+offset_bottom = 577.968
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 13
+theme_override_fonts/normal_font = ExtResource("6_vbn7p")
+theme_override_font_sizes/normal_font_size = 50
+theme_override_styles/fill = SubResource("StyleBoxFlat_866t6")
+text = "Go Back Home!->"
+script = ExtResource("7_vbn7p")
+end = 680
+start = 720
+
 [connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_button_pressed"]
+[connection signal="body_entered" from="ToNextLevel" to="." method="_on_to_next_level_body_entered"]

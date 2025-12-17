@@ -9,6 +9,8 @@ extends Node2D
 @onready var playerHealthDisplay: RichTextLabel = $Player/ProgressBar/RichTextLabel2
 @onready var resetButton: Button = $CanvasLayer/Button
 
+@onready var toNext: RichTextLabel = $RichTextLabel3
+
 func _ready() -> void:
 	if get_tree().get_first_node_in_group("Enemies") == $Orc:
 		currentOrc = $Orc
@@ -19,6 +21,7 @@ func _ready() -> void:
 	playerHealthBar.value = player.health
 
 func _physics_process(delta: float) -> void:
+	self.add_to_group("Levels")
 	self.add_to_group("Boss Areas")
 	reset_player_physics()
 	change_animations()
@@ -27,6 +30,9 @@ func _physics_process(delta: float) -> void:
 		var orcHealth = currentOrc.health
 		orcHealthBar.value = currentOrc.health		
 		orcHealthDisplay.text = "Orc Health: %s" %[str(orcHealth)]
+	else:
+		toNext.visible = true
+		$CanvasLayer/RichTextLabel.text = "You've defeated the Orc!"
 		
 	if player != null:
 		playerHealthBar.value = player.health
@@ -53,9 +59,11 @@ func change_animations():
 		await get_tree().create_timer(3).timeout
 		resetButton.disabled = false
 		resetButton.visible = true
-		
-	
-
 
 func _on_button_pressed() -> void:
 	get_tree().call_deferred("reload_current_scene")
+
+func _on_to_next_level_body_entered(body: Node2D) -> void:
+	if body.name == "Player" && currentOrc == null:
+		await get_tree().create_timer(2).timeout
+		get_tree().call_deferred("change_scene_to_file", "res://scenes/level_four.tscn")
