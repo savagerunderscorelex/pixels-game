@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://dxhtbiyrpdo2m"]
+[gd_scene load_steps=18 format=4 uid="uid://dxhtbiyrpdo2m"]
 
 [ext_resource type="Script" uid="uid://bcrbq82k6wenx" path="res://scripts/you_won.gd" id="1_6bev4"]
 [ext_resource type="Texture2D" uid="uid://bqkufdjounrv" path="res://assets/battleback10.png" id="1_cwwad"]
@@ -7,6 +7,7 @@
 [ext_resource type="FontFile" uid="uid://d3uyqpog4e48d" path="res://fonts/VCR_OSD_MONO_1.001.ttf" id="5_cfpfi"]
 [ext_resource type="Script" uid="uid://bjpfs7rkp8o7e" path="res://scripts/rich_text_label.gd" id="5_fufq8"]
 [ext_resource type="Texture2D" uid="uid://2dhfltmqtyw4" path="res://assets/UiCozyFree.png" id="7_tgsk8"]
+[ext_resource type="AudioStream" uid="uid://btckt52vfjvvt" path="res://music/endmusic.MP3" id="8_3f8g8"]
 [ext_resource type="Theme" uid="uid://bchb86aupcrnb" path="res://blue_theme.tres" id="8_80m04"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6bev4"]
@@ -794,6 +795,7 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_tgsk8")
 text = "! Quest: Go Back Home!"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_3f8g8")
 autoplay = true
 
 [node name="Panel" type="Panel" parent="."]

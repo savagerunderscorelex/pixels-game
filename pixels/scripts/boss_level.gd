@@ -19,8 +19,9 @@ func _ready() -> void:
 	
 	playerHealthBar.max_value = 100
 	playerHealthBar.value = player.health
+	$AudioStreamPlayer.playing = true
 	
-	globals.change_scene_music(self,$AudioStreamPlayer)
+	#globals.change_scene_music(self,$AudioStreamPlayer)
 	
 	
 

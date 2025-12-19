@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://cslbt1h7ptpyc"]
+[gd_scene load_steps=16 format=4 uid="uid://cslbt1h7ptpyc"]
 
 [ext_resource type="Script" uid="uid://chhsqm5y56tnv" path="res://scripts/level_four.gd" id="1_wl4gn"]
 [ext_resource type="Texture2D" uid="uid://bm3om8th0suwd" path="res://images/Document.png" id="2_qlnma"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://2dhfltmqtyw4" path="res://assets/UiCozyFree.png" id="4_t0tbu"]
 [ext_resource type="FontFile" uid="uid://d3uyqpog4e48d" path="res://fonts/VCR_OSD_MONO_1.001.ttf" id="5_krb5l"]
 [ext_resource type="Script" uid="uid://xfaoky2m4b5b" path="res://scripts/move_label.gd" id="6_qlnma"]
+[ext_resource type="AudioStream" uid="uid://dj323tai2teyr" path="res://music/gohomemusic.MP3" id="7_5mgce"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_r4wdr"]
 normal = Vector2(0.0130387, -0.999915)
@@ -367,6 +368,7 @@ script = ExtResource("6_qlnma")
 start = 40
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_5mgce")
 autoplay = true
 
 [connection signal="body_entered" from="RightFirstPanelBoundary" to="." method="_on_right_first_panel_boundary_body_entered"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://bmnpnkok6xlga"]
+[gd_scene load_steps=18 format=4 uid="uid://bmnpnkok6xlga"]
 
 [ext_resource type="Script" uid="uid://b12xvdjkb5mte" path="res://scripts/leaving_home.gd" id="1_b0653"]
 [ext_resource type="Texture2D" uid="uid://bqkufdjounrv" path="res://assets/battleback10.png" id="2_ut1wg"]
@@ -7,6 +7,7 @@
 [ext_resource type="FontFile" uid="uid://d3uyqpog4e48d" path="res://fonts/VCR_OSD_MONO_1.001.ttf" id="5_xvfcf"]
 [ext_resource type="Script" uid="uid://xfaoky2m4b5b" path="res://scripts/move_label.gd" id="7_b0653"]
 [ext_resource type="Texture2D" uid="uid://2dhfltmqtyw4" path="res://assets/UiCozyFree.png" id="7_wvtrn"]
+[ext_resource type="AudioStream" uid="uid://dmdu23oou7qi4" path="res://music/leavehomemusic.MP3" id="8_ut1wg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6bev4"]
 texture = ExtResource("3_ttg35")
@@ -809,6 +810,7 @@ rotation = 1.5708
 shape = SubResource("WorldBoundaryShape2D_ut1wg")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_ut1wg")
 autoplay = true
 
 [connection signal="body_entered" from="ToNextLevel" to="." method="_on_to_next_level_body_entered"]

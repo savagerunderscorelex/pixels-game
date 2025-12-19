@@ -1,4 +1,4 @@
-extends Node2D
+extends Node
 var theStream 
 # WAIT!!!!!!!!!!!!!!!!!!!!
 # This is my first time making a function with parameters by myself, barely any docs, no tutorials
@@ -16,7 +16,6 @@ func change_scene_music(scene, audio: AudioStreamPlayer):
 	match scene.name:
 		"level_one":
 			theStream = AudioStreamMP3.load_from_file("res://music/levelonemusic.MP3")
-			print("level one")
 		"level_two":
 			theStream = AudioStreamMP3.load_from_file("res://music/level2audio.MP3")
 		"boss_level":
@@ -27,7 +26,7 @@ func change_scene_music(scene, audio: AudioStreamPlayer):
 			theStream = AudioStreamMP3.load_from_file("res://music/endmusic.MP3")
 		"goals":
 			theStream = AudioStreamMP3.load_from_file("res://music/goalsmusic.MP3")
-		"leaving_home":
+		"leaving_homey":
 			theStream = AudioStreamMP3.load_from_file("res://music/leavehomemusic.MP3")
 			
 	audio.set_stream(theStream)

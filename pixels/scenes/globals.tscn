@@ -2,5 +2,5 @@
 
 [ext_resource type="Script" uid="uid://cp5qv0c0oqkfj" path="res://scripts/globals(music).gd" id="1_4trbe"]
 
-[node name="globals" type="Node2D"]
+[node name="globals" type="Node"]
 script = ExtResource("1_4trbe")

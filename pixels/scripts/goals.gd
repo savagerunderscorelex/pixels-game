@@ -14,8 +14,10 @@ func _ready() -> void: # Makes all the labels and the buttons not visible
 	dontDie.visible = false
 	button.visible = false
 	button.disabled = true
+	$AudioStreamPlayer.playing = true
+
 	
-	globals.change_scene_music(self,$AudioStreamPlayer)
+	# globals.change_scene_music(self,$AudioStreamPlayer)
 	
 func _process(delta: float) -> void:
 	show_goals()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://b8gtr3bukmtej"]
+[gd_scene load_steps=24 format=4 uid="uid://b8gtr3bukmtej"]
 
 [ext_resource type="Script" uid="uid://4spxk7gvmbvq" path="res://scripts/boss_level.gd" id="1_8q0yx"]
 [ext_resource type="Texture2D" uid="uid://bys2302ybxokn" path="res://images/battleback1.png" id="2_dnfp7"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://2dhfltmqtyw4" path="res://assets/UiCozyFree.png" id="5_lyfqi"]
 [ext_resource type="FontFile" uid="uid://d3uyqpog4e48d" path="res://fonts/VCR_OSD_MONO_1.001.ttf" id="6_vbn7p"]
 [ext_resource type="Script" uid="uid://xfaoky2m4b5b" path="res://scripts/move_label.gd" id="7_vbn7p"]
+[ext_resource type="AudioStream" uid="uid://buhxwv4h6vb1e" path="res://music/bosslevelmusic.MP3" id="8_8b5o6"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_5rfim"]
 normal = Vector2(8.00487e-08, -1)
@@ -734,6 +735,7 @@ end = 680
 start = 720
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_8b5o6")
 autoplay = true
 
 [connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_button_pressed"]

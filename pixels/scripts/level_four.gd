@@ -7,7 +7,9 @@ extends Node2D
 func _ready() -> void:
 	self.add_to_group("Levels")
 	secondCamera.enabled = false
-	globals.change_scene_music(self,$AudioStreamPlayer)
+	# globals.change_scene_music(self,$AudioStreamPlayer)
+	$AudioStreamPlayer.playing = true
+	
 	$Player.CHARACTER_SPEED = 195 # Made character slower to originally match with timing for the video
 
 func _on_right_first_panel_boundary_body_entered(body: Node2D) -> void: # When the player enters this area, the camera is changed (2nd Camera)

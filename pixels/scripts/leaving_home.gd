@@ -6,7 +6,8 @@ extends Node2D
 var isScene : bool = true
 
 func _ready() -> void:
-	globals.change_scene_music(self,$AudioStreamPlayer)
+	$AudioStreamPlayer.playing = true
+	# globals.change_scene_music(self,$AudioStreamPlayer)
 	
 func _physics_process(delta: float) -> void:
 	self.add_to_group("Boss Areas")

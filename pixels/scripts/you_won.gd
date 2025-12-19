@@ -5,7 +5,8 @@ extends Node2D
 @onready var areasss: Area2D = $YouWon
 
 func _ready() -> void:
-	globals.change_scene_music(self,$AudioStreamPlayer)
+	# globals.change_scene_music(self,$AudioStreamPlayer)
+	$AudioStreamPlayer.playing = true
 	await get_tree().create_timer(30).timeout
 	$Panel.visible = true
 

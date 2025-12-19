@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://cj15xvru8nahd" path="res://scripts/goals.gd" id="1_crtid"]
 [ext_resource type="Texture2D" uid="uid://2dhfltmqtyw4" path="res://assets/UiCozyFree.png" id="2_eqgb2"]
 [ext_resource type="FontFile" uid="uid://d3uyqpog4e48d" path="res://fonts/VCR_OSD_MONO_1.001.ttf" id="3_ibicj"]
-[ext_resource type="AudioStream" uid="uid://dmdu23oou7qi4" path="res://music/leavehomemusic.MP3" id="4_eqgb2"]
+[ext_resource type="AudioStream" uid="uid://dqe3w2htf26cn" path="res://music/goalsmusic.MP3" id="4_eqgb2"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xihqu"]
 bg_color = Color(0, 0, 0, 1)
