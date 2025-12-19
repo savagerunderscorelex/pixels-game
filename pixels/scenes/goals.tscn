@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=4 uid="uid://dl6l5mc7llecd"]
+[gd_scene load_steps=12 format=4 uid="uid://dl6l5mc7llecd"]
 
-[ext_resource type="Script" uid="uid://cj15xvru8nahd" path="res://scripts/health_component.gd" id="1_crtid"]
+[ext_resource type="Script" uid="uid://cj15xvru8nahd" path="res://scripts/goals.gd" id="1_crtid"]
 [ext_resource type="Texture2D" uid="uid://2dhfltmqtyw4" path="res://assets/UiCozyFree.png" id="2_eqgb2"]
 [ext_resource type="FontFile" uid="uid://d3uyqpog4e48d" path="res://fonts/VCR_OSD_MONO_1.001.ttf" id="3_ibicj"]
+[ext_resource type="AudioStream" uid="uid://dmdu23oou7qi4" path="res://music/leavehomemusic.MP3" id="4_eqgb2"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xihqu"]
 bg_color = Color(0, 0, 0, 1)
@@ -357,5 +358,9 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_crtid")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_eqgb2")
 theme_override_styles/normal = SubResource("StyleBoxFlat_ur5e7")
 text = "Next"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_eqgb2")
+autoplay = true
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

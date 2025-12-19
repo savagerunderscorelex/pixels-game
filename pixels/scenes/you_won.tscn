@@ -792,4 +792,7 @@ theme_override_font_sizes/normal_font_size = 50
 theme_override_styles/fill = SubResource("StyleBoxFlat_tgsk8")
 text = "! Quest: Go Back Home!"
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+autoplay = true
+
 [connection signal="body_entered" from="YouWon" to="." method="_on_you_won_body_entered"]

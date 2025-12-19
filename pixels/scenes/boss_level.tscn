@@ -733,5 +733,8 @@ script = ExtResource("7_vbn7p")
 end = 680
 start = 720
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+autoplay = true
+
 [connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_button_pressed"]
 [connection signal="body_entered" from="ToNextLevel" to="." method="_on_to_next_level_body_entered"]

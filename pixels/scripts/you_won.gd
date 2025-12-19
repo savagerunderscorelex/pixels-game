@@ -4,6 +4,9 @@ extends Node2D
 @onready var wonMessage: RichTextLabel = $Control/RichTextLabel
 @onready var areasss: Area2D = $YouWon
 
+func _ready() -> void:
+	globals.change_scene_music(self,$AudioStreamPlayer)
+
 func _physics_process(delta: float) -> void:
 	self.add_to_group("Boss Areas")
 	reset_player_physics()

@@ -15,17 +15,19 @@ func _ready() -> void: # Makes all the labels and the buttons not visible
 	button.visible = false
 	button.disabled = true
 	
+	globals.change_scene_music(self,$AudioStreamPlayer)
+	
 func _process(delta: float) -> void:
 	show_goals()
 	
 func show_goals(): # Showing each goal after 3.5 secs to match up with the music :3
 	await get_tree().create_timer(3.5).timeout
 	completeLevels.visible = true
-	await get_tree().create_timer(3.5).timeout
+	await get_tree().create_timer(3).timeout
 	defeatOrc.visible = true
-	await get_tree().create_timer(3.5).timeout
+	await get_tree().create_timer(3.2).timeout
 	dontDie.visible = true
-	await get_tree().create_timer(3.5).timeout
+	await get_tree().create_timer(3.2).timeout
 	next_button_appear()
 
 func next_button_appear(): # Makes the next button visible and clickable

@@ -366,5 +366,8 @@ text = "<- Here to Home"
 script = ExtResource("6_qlnma")
 start = 40
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+autoplay = true
+
 [connection signal="body_entered" from="RightFirstPanelBoundary" to="." method="_on_right_first_panel_boundary_body_entered"]
 [connection signal="body_entered" from="ToNextLevel" to="." method="_on_to_next_level_body_entered"]

@@ -3,8 +3,10 @@ extends Node2D
 @onready var player: CharacterBody2D = $Player
 @onready var movingLabel: RichTextLabel = $RichTextLabel3
 
-
 var isScene : bool = true
+
+func _ready() -> void:
+	globals.change_scene_music(self,$AudioStreamPlayer)
 	
 func _physics_process(delta: float) -> void:
 	self.add_to_group("Boss Areas")
