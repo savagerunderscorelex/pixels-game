@@ -7,7 +7,7 @@ extends Node2D
 func _ready() -> void:
 	# globals.change_scene_music(self,$AudioStreamPlayer)
 	$AudioStreamPlayer.playing = true
-	await get_tree().create_timer(30).timeout
+	await get_tree().create_timer(25).timeout
 	$Panel.visible = true
 
 func _physics_process(delta: float) -> void:

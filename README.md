@@ -1,11 +1,17 @@
 # Pixels: The Game
 
-For HSA Band's Winter Concert performing the piece Pixels.
+For HSA Band's Winter Concert performing the piece Pixels by Randall Standridge.
+
+## About
+
+This game was made as an accompaniment of our performance during the winter concert of my school's band. This game is based off the piece "Pixels" by Randall Standridge. I originally just used Godot to make creating a video way easier, but eventually I wanted to work on it more to make it more of an actual game. So, here it is!
 
 Time Spent: ![Hackatime, OOOOOOOOOOOOOOHHHHHHHHHHH](https://hackatime-badge.hackclub.com/U08UGTGS4HE/pixels-game
 )
 
 ## Where to Play
+
+Hey! Do you want to play the game on itch.io? Well, fortunately for you, you can through this link: [Pixels: The Game on itch.io](https://alexistreamoon.itch.io/pixels-the-game)
 
 ## Final Video
 
