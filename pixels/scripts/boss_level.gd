@@ -21,6 +21,8 @@ func _ready() -> void:
 	playerHealthBar.value = player.health
 	
 	globals.change_scene_music(self,$AudioStreamPlayer)
+	
+	
 
 func _physics_process(delta: float) -> void:
 	self.add_to_group("Levels")

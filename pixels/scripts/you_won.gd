@@ -6,6 +6,8 @@ extends Node2D
 
 func _ready() -> void:
 	globals.change_scene_music(self,$AudioStreamPlayer)
+	await get_tree().create_timer(30).timeout
+	$Panel.visible = true
 
 func _physics_process(delta: float) -> void:
 	self.add_to_group("Boss Areas")
@@ -35,3 +37,9 @@ func _on_you_won_body_entered(body: Node2D) -> void:
 		while wonMessage.global_position.x > 550: # I feel so smart figuring this out lol
 			wonMessage.global_position.x -= 2
 			await get_tree().create_timer(0.006).timeout
+			
+		
+
+
+func _on_button_pressed() -> void:
+	get_tree().call_deferred("change_scene_to_file", "res://scenes/enter.tscn")

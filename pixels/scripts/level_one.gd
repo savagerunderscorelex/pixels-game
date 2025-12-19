@@ -5,7 +5,7 @@ extends Node2D
 @onready var description = $CanvasLayer/RichTextLabel2
 
 func _ready() -> void:
-	globals.change_scene_music(self, $AudioStreamPlayer)
+	globals.change_scene_music(self,$AudioStreamPlayer)
 	secondCamera.enabled = false
 	self.add_to_group("Levels")
 
