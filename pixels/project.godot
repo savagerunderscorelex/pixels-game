@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="pixels"
-run/main_scene="uid://bmnpnkok6xlga"
+run/main_scene="uid://fc60abbvfd7h"
 config/features=PackedStringArray("4.4", "Mobile")
 config/icon="uid://de3xveay6unmi"
 
@@ -22,8 +22,7 @@ globals="*res://scenes/globals.tscn"
 [display]
 
 window/size/always_on_top=true
-window/stretch/mode="canvas_items"
-window/stretch/aspect="expand"
+window/stretch/mode="viewport"
 
 [editor_plugins]
 
