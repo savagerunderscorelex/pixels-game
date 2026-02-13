@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://bmnpnkok6xlga"]
+[gd_scene format=4 uid="uid://bmnpnkok6xlga"]
 
 [ext_resource type="Script" uid="uid://b12xvdjkb5mte" path="res://scripts/leaving_home.gd" id="1_b0653"]
 [ext_resource type="Texture2D" uid="uid://bqkufdjounrv" path="res://assets/battleback10.png" id="2_ut1wg"]
@@ -707,33 +707,37 @@ b = Vector2(-16, 456)
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ut1wg"]
 distance = -120.0
 
-[node name="leaving_home" type="Node2D"]
+[node name="leaving_home" type="Node2D" unique_id=29987945]
 script = ExtResource("1_b0653")
 
-[node name="Sprite2D2" type="Sprite2D" parent="."]
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=766722108]
+texture_filter = 1
 position = Vector2(567.751, 314.624)
 scale = Vector2(1.07654, 1.11554)
 texture = ExtResource("2_ut1wg")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2092198895]
+texture_filter = 1
 
-[node name="TileMapLayer" type="TileMapLayer" parent="."]
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=769485826]
+texture_filter = 1
 position = Vector2(-403, -197)
 scale = Vector2(3.48085, 3.03716)
 tile_map_data = PackedByteArray("AAAJAAgAAgABAAEAAAAJAAkAAgABAAIAAAAJAAoAAgABAAMAAAAJAAsAAgABAAQAAAAJAAwAAgABAAUAAAAKAAgAAgACAAEAAAAKAAkAAgACAAIAAAAKAAoAAgACAAMAAAAKAAsAAgACAAQAAAAKAAwAAgACAAUAAAALAAgAAgADAAEAAAALAAkAAgADAAIAAAALAAoAAgADAAMAAAALAAsAAgADAAQAAAALAAwAAgADAAUAAAAMAAgAAgAEAAEAAAAMAAkAAgAEAAIAAAAMAAoAAgAEAAMAAAAMAAsAAgAEAAQAAAAMAAwAAgAEAAUAAAANAAgAAgAFAAEAAAANAAkAAgAFAAIAAAANAAoAAgAFAAMAAAANAAsAAgAFAAQAAAANAAwAAgAFAAUAAAAOAAgAAgAGAAEAAAAOAAkAAgAGAAIAAAAOAAoAAgAGAAMAAAAOAAsAAgAGAAQAAAAOAAwAAgAGAAUAAAAPAAgAAgAHAAEAAAAPAAkAAgAHAAIAAAAPAAoAAgAHAAMAAAAPAAsAAgAHAAQAAAAPAAwAAgAHAAUAAAAQAAgAAgAIAAEAAAAQAAkAAgAIAAIAAAAQAAoAAgAIAAMAAAAQAAsAAgAIAAQAAAAQAAwAAgAIAAUAAAA=")
 tile_set = SubResource("TileSet_fufq8")
 
-[node name="TileMapLayer2" type="TileMapLayer" parent="."]
+[node name="TileMapLayer2" type="TileMapLayer" parent="." unique_id=2130874538]
+texture_filter = 1
 position = Vector2(-403, -197)
 scale = Vector2(3.48085, 3.03716)
 tile_map_data = PackedByteArray("AAAIAAgAAAAAAAkAAAAIAAkAAAAAAAoAAAAIAAoAAAAAAAsAAAAIAAsAAAAAAAwAAAAJAAUAAAABAAYAAAAJAAYAAAABAAcAAAAJAAcAAAABAAgAAAAJAAgAAAABAAkAAAAJAAkAAAABAAoAAAAJAAoAAAABAAsAAAAJAAsAAAADAA0AAAAKAAUAAAACAAYAAAAKAAYAAAACAAcAAAAKAAcAAAACAAgAAAAKAAgAAAACAAkAAAAKAAkAAAACAAoAAAAKAAoAAAACAAsAAAALAAUAAAADAAYAAAALAAYAAAADAAcAAAALAAcAAAADAAgAAAALAAgAAAADAAkAAAAMAAUAAAAEAAYAAAAMAAYAAAAEAAcAAAAMAAcAAAAEAAgAAAAMAAgAAAAEAAkAAAANAAUAAAAFAAYAAAANAAYAAAAFAAcAAAANAAcAAAAFAAgAAAANAAgAAAAFAAkAAAANAAkAAAAFAAoAAAANAAoAAAAFAAsAAAAOAAYAAAAGAAcAAAAOAAcAAAAGAAgAAAAOAAgAAAAGAAkAAAAOAAkAAAAGAAoAAAAOAAoAAAAGAAsAAAAPAAcAAAAHAAgAAAAPAAgAAAAHAAkAAAAPAAkAAAAHAAoAAAAPAAoAAAAHAAsAAAAQAAcAAAAIAAgAAAAQAAgAAAAIAAkAAAAQAAkAAAAIAAoAAAAQAAoAAAAIAAsAAAAQAAsAAAAIAAwAAAARAAgAAAAJAAkAAAARAAkAAAAJAAoAAAARAAoAAAAJAAsAAAARAAsAAAAJAAwAAAAJAAwAAAADAA4AAAAKAAsAAAAEAA0AAAAKAAwAAAAEAA4AAAAMAAsAAAAGAA0AAAAMAAwAAAAGAA4AAAANAAsAAAAIAA0AAAANAAwAAAAIAA4AAAALAAsAAAAFAA0AAAALAAwAAAAFAA4AAAALAAkAAAADAAoAAAAMAAkAAAAEAAoAAAA=")
 tile_set = SubResource("TileSet_tgsk8")
 
-[node name="Player" parent="." instance=ExtResource("4_nn4lg")]
+[node name="Player" parent="." unique_id=1910928949 instance=ExtResource("4_nn4lg")]
 position = Vector2(431, 385)
 scale = Vector2(2.5, 2.5)
 
-[node name="RichTextLabel3" type="RichTextLabel" parent="."]
+[node name="RichTextLabel3" type="RichTextLabel" parent="." unique_id=1717132280]
 anchors_preset = -1
 anchor_bottom = 0.034
 offset_left = 768.0
@@ -750,15 +754,16 @@ script = ExtResource("7_b0653")
 end = 750
 start = 800
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=23585392]
 
-[node name="TileMapLayer" type="TileMapLayer" parent="CanvasLayer"]
+[node name="TileMapLayer" type="TileMapLayer" parent="CanvasLayer" unique_id=962925153]
+texture_filter = 1
 position = Vector2(40, 40)
 scale = Vector2(2.45248, 2.09152)
 tile_map_data = PackedByteArray("AAABAP//AAAAAAoAAAACAP//AAABAAoAAAADAP//AAACAAoAAAAEAP//AAADAAoAAAAFAP//AAADAAoAAAAGAP//AAADAAoAAAAHAP//AAADAAoAAAAIAP//AAADAAoAAAAJAP//AAADAAoAAAAKAP//AAADAAoAAAALAP//AAADAAoAAAAMAP//AAADAAoAAAANAP//AAADAAoAAAAOAP//AAADAAoAAAAPAP//AAADAAoAAAAQAP//AAADAAoAAAARAP//AAADAAoAAAASAP//AAADAAoAAAATAP//AAADAAoAAAAUAP//AAADAAoAAAAVAP//AAADAAoAAAAWAP//AAADAAoAAAAXAP//AAADAAoAAAAYAP//AAAEAAoAAAAZAP//AAAFAAoAAAABAAAAAAAAAAsAAAABAAEAAAAAAAwAAAABAAIAAAAAAA0AAAACAAAAAAACAA0AAAACAAEAAAACAA0AAAACAAIAAAABAA0AAAABAAMAAAAAAA8AAAACAAMAAAABAA8AAAADAAMAAAACAA8AAAAEAAMAAAADAA8AAAAFAAMAAAAEAA8AAAAGAAMAAAABAA8AAAAHAAMAAAACAA8AAAAIAAMAAAADAA8AAAAJAAMAAAAEAA8AAAAKAAMAAAABAA8AAAALAAMAAAACAA8AAAAMAAMAAAADAA8AAAANAAMAAAAEAA8AAAAOAAMAAAABAA8AAAAPAAMAAAACAA8AAAAQAAMAAAADAA8AAAARAAMAAAAEAA8AAAASAAMAAAABAA8AAAATAAMAAAACAA8AAAAUAAMAAAADAA8AAAAVAAMAAAABAA8AAAAWAAMAAAACAA8AAAAXAAMAAAADAA8AAAAYAAMAAAAEAA8AAAAZAAMAAAAFAA8AAAAZAAAAAAAFAAsAAAAZAAEAAAAFAAwAAAAZAAIAAAAFAA0AAAADAAEAAAACAA0AAAADAAIAAAACAA0AAAAEAAEAAAACAA0AAAAEAAIAAAADAA0AAAAFAAEAAAACAA0AAAAFAAIAAAAEAA0AAAAGAAEAAAACAAwAAAAGAAIAAAACAA0AAAAHAAEAAAADAAwAAAAHAAIAAAADAA0AAAAIAAEAAAAEAAwAAAAIAAIAAAAEAA0AAAAJAAEAAAACAAwAAAAJAAIAAAACAA0AAAAKAAEAAAADAAwAAAAKAAIAAAADAA0AAAALAAEAAAAEAAwAAAALAAIAAAAEAA0AAAAMAAEAAAACAAwAAAAMAAIAAAACAA0AAAANAAEAAAADAAwAAAANAAIAAAADAA0AAAAOAAEAAAAEAAwAAAAOAAIAAAAEAA0AAAAPAAEAAAACAAwAAAAPAAIAAAACAA0AAAAQAAEAAAADAAwAAAAQAAIAAAADAA0AAAARAAEAAAAEAAwAAAARAAIAAAAEAA0AAAASAAEAAAACAAwAAAASAAIAAAACAA0AAAATAAEAAAADAAwAAAATAAIAAAADAA0AAAAUAAEAAAAEAAwAAAAUAAIAAAAEAA0AAAAVAAEAAAACAAwAAAAVAAIAAAACAA0AAAAWAAEAAAADAAwAAAAWAAIAAAADAA0AAAAXAAEAAAAEAAwAAAAXAAIAAAAEAA0AAAAYAAIAAAACAA0AAAAYAAEAAAACAA0AAAAYAAAAAAACAA0AAAAXAAAAAAACAA0AAAAWAAAAAAACAA0AAAAVAAAAAAACAA0AAAAUAAAAAAACAA0AAAATAAAAAAACAA0AAAASAAAAAAACAA0AAAARAAAAAAACAA0AAAAQAAAAAAACAA0AAAAPAAAAAAACAA0AAAAOAAAAAAACAA0AAAANAAAAAAACAA0AAAAMAAAAAAACAA0AAAALAAAAAAACAA0AAAAKAAAAAAACAA0AAAAJAAAAAAACAA0AAAAIAAAAAAACAA0AAAAHAAAAAAACAA0AAAAGAAAAAAACAA0AAAAFAAAAAAACAA0AAAADAAAAAAACAA0AAAAEAAAAAAACAA0AAAA=")
 tile_set = SubResource("TileSet_3f8g8")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer"]
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer" unique_id=1491050468]
 anchors_preset = -1
 anchor_bottom = 0.034
 offset_left = 144.0
@@ -772,7 +777,7 @@ theme_override_font_sizes/normal_font_size = 50
 theme_override_styles/fill = SubResource("StyleBoxFlat_tgsk8")
 text = "! Quest: Defeat the Mighty Orc"
 
-[node name="RichTextLabel2" type="RichTextLabel" parent="CanvasLayer"]
+[node name="RichTextLabel2" type="RichTextLabel" parent="CanvasLayer" unique_id=1006055655]
 anchors_preset = -1
 anchor_bottom = 0.034
 offset_left = 120.0
@@ -787,29 +792,29 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_tgsk8")
 text = "Leave Home  ->"
 horizontal_alignment = 1
 
-[node name="ToNextLevel" type="Area2D" parent="."]
+[node name="ToNextLevel" type="Area2D" parent="." unique_id=5739597]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ToNextLevel"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ToNextLevel" unique_id=1615284530]
 position = Vector2(1162, 176)
 shape = SubResource("SegmentShape2D_b0653")
 
-[node name="WorldBoundaries" type="StaticBody2D" parent="."]
+[node name="WorldBoundaries" type="StaticBody2D" parent="." unique_id=1251970523]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBoundaries"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBoundaries" unique_id=1327528533]
 position = Vector2(640, 248)
 rotation = 3.14159
 shape = SubResource("WorldBoundaryShape2D_ut1wg")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="WorldBoundaries"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="WorldBoundaries" unique_id=257220846]
 position = Vector2(528, 536)
 shape = SubResource("WorldBoundaryShape2D_ut1wg")
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="WorldBoundaries"]
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="WorldBoundaries" unique_id=49922939]
 position = Vector2(120, 376)
 rotation = 1.5708
 shape = SubResource("WorldBoundaryShape2D_ut1wg")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=813282542]
 stream = ExtResource("8_ut1wg")
 autoplay = true
 

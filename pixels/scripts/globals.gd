@@ -1,4 +1,5 @@
 extends Node
+
 var theStream 
 # WAIT!!!!!!!!!!!!!!!!!!!!
 # This is my first time making a function with parameters by myself, barely any docs, no tutorials
@@ -11,11 +12,18 @@ var theStream
 # lol :skull:
 # still "barely any docs" and "no tutorials" still stands, but I'll add the docs/ forum posts I DID use to the readme now
 # I probably don't have to but i do like doing it
-
+func load_mp3(path):
+	var file = FileAccess.open(path, FileAccess.READ)
+	var sound = AudioStreamMP3.new()
+	sound.data = file.get_buffer(file.get_length())
+	return sound
+	
+	
 func change_scene_music(scene, audio: AudioStreamPlayer):
 	match scene.name:
 		"level_one":
-			theStream = AudioStreamMP3.load_from_file("res://music/levelonemusic.MP3")
+			var enter = load_mp3("res://music/levelone.MP3")
+			theStream = AudioStreamMP3.load_from_buffer(enter)
 		"level_two":
 			theStream = AudioStreamMP3.load_from_file("res://music/level2audio.MP3")
 		"boss_level":

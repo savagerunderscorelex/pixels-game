@@ -8,21 +8,29 @@
 
 config_version=5
 
+[animation]
+
+compatibility/default_parent_skeleton_in_mesh_instance_3d=true
+
 [application]
 
 config/name="pixels"
 run/main_scene="uid://fc60abbvfd7h"
-config/features=PackedStringArray("4.4", "Mobile")
+config/features=PackedStringArray("4.6", "Mobile")
 config/icon="uid://de3xveay6unmi"
 
 [autoload]
 
-globals="*res://scenes/globals.tscn"
+glo="*res://scenes/globals.tscn"
 
 [display]
 
 window/size/always_on_top=true
 window/stretch/mode="viewport"
+
+[editor]
+
+naming/script_name_casing=2
 
 [editor_plugins]
 

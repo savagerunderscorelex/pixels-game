@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=4 uid="uid://bfpgcj32nxv7s"]
+[gd_scene format=4 uid="uid://bfpgcj32nxv7s"]
 
 [ext_resource type="PackedScene" uid="uid://cfy204ca81v35" path="res://scenes/player.tscn" id="1_cd1xg"]
 [ext_resource type="Script" uid="uid://byo67e2jg8nyi" path="res://scripts/level_one.gd" id="1_t18mc"]
@@ -6,7 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://2dhfltmqtyw4" path="res://assets/UiCozyFree.png" id="4_r4wdr"]
 [ext_resource type="FontFile" uid="uid://d3uyqpog4e48d" path="res://fonts/VCR_OSD_MONO_1.001.ttf" id="5_bhu28"]
 [ext_resource type="Script" uid="uid://xfaoky2m4b5b" path="res://scripts/move_label.gd" id="6_bhu28"]
-[ext_resource type="AudioStream" uid="uid://8yhoap8156e8" path="res://music/levelonemusic.MP3" id="7_4p75b"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_r4wdr"]
 distance = 1172.0
@@ -498,68 +497,73 @@ b = Vector2(474, -158)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y8ti4"]
 bg_color = Color(0.286275, 0.627451, 0.898039, 1)
 
-[node name="level_one" type="Node2D"]
+[node name="level_one" type="Node2D" unique_id=2078260306]
 script = ExtResource("1_t18mc")
 
-[node name="Background" type="Sprite2D" parent="."]
+[node name="Background" type="Sprite2D" parent="." unique_id=1849021615]
+texture_filter = 1
 position = Vector2(576, 324)
 scale = Vector2(3, 2.89286)
 texture = ExtResource("2_843q2")
 
-[node name="Background2" type="Sprite2D" parent="."]
+[node name="Background2" type="Sprite2D" parent="." unique_id=1957718245]
+texture_filter = 1
 position = Vector2(1728, 324)
 scale = Vector2(3, 2.89286)
 texture = ExtResource("2_843q2")
 
-[node name="Background3" type="Sprite2D" parent="."]
+[node name="Background3" type="Sprite2D" parent="." unique_id=1318492831]
+texture_filter = 1
 position = Vector2(2880, 324)
 scale = Vector2(3, 2.89286)
 texture = ExtResource("2_843q2")
 
-[node name="Background4" type="Sprite2D" parent="."]
+[node name="Background4" type="Sprite2D" parent="." unique_id=36000210]
+texture_filter = 1
 position = Vector2(4032, 324)
 scale = Vector2(3, 2.89286)
 texture = ExtResource("2_843q2")
 
-[node name="Player" parent="." instance=ExtResource("1_cd1xg")]
+[node name="Player" parent="." unique_id=1917997321 instance=ExtResource("1_cd1xg")]
 position = Vector2(57, 494)
 scale = Vector2(2.7576, 2.67487)
 
-[node name="WorldBoundaries" type="StaticBody2D" parent="."]
+[node name="WorldBoundaries" type="StaticBody2D" parent="." unique_id=1832711619]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBoundaries"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBoundaries" unique_id=1496127241]
 position = Vector2(-1172, 414)
 rotation = 1.5708
 shape = SubResource("WorldBoundaryShape2D_r4wdr")
 
-[node name="Floor" type="StaticBody2D" parent="."]
+[node name="Floor" type="StaticBody2D" parent="." unique_id=1508905529]
 position = Vector2(208, 536)
 
-[node name="FloorCollisionShape" type="CollisionShape2D" parent="Floor"]
+[node name="FloorCollisionShape" type="CollisionShape2D" parent="Floor" unique_id=1223346485]
 position = Vector2(-120, 32)
 shape = SubResource("WorldBoundaryShape2D_55s7s")
 
-[node name="SecondPanelCamera" type="Camera2D" parent="."]
+[node name="SecondPanelCamera" type="Camera2D" parent="." unique_id=483647414]
 position = Vector2(1728, 324)
 scale = Vector2(10.6153, 10.2626)
 
-[node name="RightFirstPanelBoundary" type="Area2D" parent="."]
+[node name="RightFirstPanelBoundary" type="Area2D" parent="." unique_id=1591304426]
 position = Vector2(1152, 0)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RightFirstPanelBoundary"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightFirstPanelBoundary" unique_id=741828431]
 position = Vector2(-1, 313)
 rotation = -1.5708
 shape = SubResource("SegmentShape2D_5rfim")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=238344007]
 
-[node name="TileMapLayer" type="TileMapLayer" parent="CanvasLayer"]
+[node name="TileMapLayer" type="TileMapLayer" parent="CanvasLayer" unique_id=340223759]
+texture_filter = 1
 position = Vector2(40, 40)
 scale = Vector2(2.45248, 2.09152)
 tile_map_data = PackedByteArray("AAABAP//AAAAAAoAAAACAP//AAABAAoAAAADAP//AAACAAoAAAAEAP//AAADAAoAAAAFAP//AAADAAoAAAAGAP//AAADAAoAAAAHAP//AAADAAoAAAAIAP//AAADAAoAAAAJAP//AAADAAoAAAAKAP//AAADAAoAAAALAP//AAADAAoAAAAMAP//AAADAAoAAAANAP//AAADAAoAAAAOAP//AAADAAoAAAAPAP//AAADAAoAAAAQAP//AAADAAoAAAARAP//AAADAAoAAAASAP//AAADAAoAAAATAP//AAADAAoAAAAUAP//AAADAAoAAAAVAP//AAADAAoAAAAWAP//AAADAAoAAAAXAP//AAADAAoAAAAYAP//AAAEAAoAAAAZAP//AAAFAAoAAAABAAAAAAAAAAsAAAABAAEAAAAAAAwAAAABAAIAAAAAAA0AAAACAAAAAAACAA0AAAACAAEAAAACAA0AAAACAAIAAAABAA0AAAABAAMAAAAAAA8AAAACAAMAAAABAA8AAAADAAMAAAACAA8AAAAEAAMAAAADAA8AAAAFAAMAAAAEAA8AAAAGAAMAAAABAA8AAAAHAAMAAAACAA8AAAAIAAMAAAADAA8AAAAJAAMAAAAEAA8AAAAKAAMAAAABAA8AAAALAAMAAAACAA8AAAAMAAMAAAADAA8AAAANAAMAAAAEAA8AAAAOAAMAAAABAA8AAAAPAAMAAAACAA8AAAAQAAMAAAADAA8AAAARAAMAAAAEAA8AAAASAAMAAAABAA8AAAATAAMAAAACAA8AAAAUAAMAAAADAA8AAAAVAAMAAAABAA8AAAAWAAMAAAACAA8AAAAXAAMAAAADAA8AAAAYAAMAAAAEAA8AAAAZAAMAAAAFAA8AAAAZAAAAAAAFAAsAAAAZAAEAAAAFAAwAAAAZAAIAAAAFAA0AAAADAAEAAAACAA0AAAADAAIAAAACAA0AAAAEAAEAAAACAA0AAAAEAAIAAAADAA0AAAAFAAEAAAACAA0AAAAFAAIAAAAEAA0AAAAGAAEAAAACAAwAAAAGAAIAAAACAA0AAAAHAAEAAAADAAwAAAAHAAIAAAADAA0AAAAIAAEAAAAEAAwAAAAIAAIAAAAEAA0AAAAJAAEAAAACAAwAAAAJAAIAAAACAA0AAAAKAAEAAAADAAwAAAAKAAIAAAADAA0AAAALAAEAAAAEAAwAAAALAAIAAAAEAA0AAAAMAAEAAAACAAwAAAAMAAIAAAACAA0AAAANAAEAAAADAAwAAAANAAIAAAADAA0AAAAOAAEAAAAEAAwAAAAOAAIAAAAEAA0AAAAPAAEAAAACAAwAAAAPAAIAAAACAA0AAAAQAAEAAAADAAwAAAAQAAIAAAADAA0AAAARAAEAAAAEAAwAAAARAAIAAAAEAA0AAAASAAEAAAACAAwAAAASAAIAAAACAA0AAAATAAEAAAADAAwAAAATAAIAAAADAA0AAAAUAAEAAAAEAAwAAAAUAAIAAAAEAA0AAAAVAAEAAAACAAwAAAAVAAIAAAACAA0AAAAWAAEAAAADAAwAAAAWAAIAAAADAA0AAAAXAAEAAAAEAAwAAAAXAAIAAAAEAA0AAAAYAAIAAAACAA0AAAAYAAEAAAACAA0AAAAYAAAAAAACAA0AAAAXAAAAAAACAA0AAAAWAAAAAAACAA0AAAAVAAAAAAACAA0AAAAUAAAAAAACAA0AAAATAAAAAAACAA0AAAASAAAAAAACAA0AAAARAAAAAAACAA0AAAAQAAAAAAACAA0AAAAPAAAAAAACAA0AAAAOAAAAAAACAA0AAAANAAAAAAACAA0AAAAMAAAAAAACAA0AAAALAAAAAAACAA0AAAAKAAAAAAACAA0AAAAJAAAAAAACAA0AAAAIAAAAAAACAA0AAAAHAAAAAAACAA0AAAAGAAAAAAACAA0AAAAFAAAAAAACAA0AAAADAAAAAAACAA0AAAAEAAAAAAACAA0AAAA=")
 tile_set = SubResource("TileSet_bhu28")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer"]
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer" unique_id=449803978]
 anchors_preset = -1
 anchor_bottom = 0.034
 offset_left = 115.0
@@ -574,7 +578,7 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_4p75b")
 text = "! Quest: Go Forward!"
 horizontal_alignment = 1
 
-[node name="RichTextLabel2" type="RichTextLabel" parent="CanvasLayer"]
+[node name="RichTextLabel2" type="RichTextLabel" parent="CanvasLayer" unique_id=945496626]
 anchors_preset = -1
 anchor_bottom = 0.034
 offset_left = 123.0
@@ -589,13 +593,14 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_4p75b")
 text = "Starting Off Easy"
 horizontal_alignment = 1
 
-[node name="TileMapLayer2" type="TileMapLayer" parent="CanvasLayer"]
+[node name="TileMapLayer2" type="TileMapLayer" parent="CanvasLayer" unique_id=143088011]
+texture_filter = 1
 position = Vector2(-904, -288)
 scale = Vector2(2, 1.7)
 tile_map_data = PackedByteArray("AAA7AB0AAAAGAAoAAAA7AB4AAAAGAAsAAAA8AB0AAAAHAAoAAAA8AB4AAAAHAAsAAAA9AB0AAAAIAAoAAAA9AB4AAAAIAAsAAAA+AB0AAAAJAAoAAAA+AB4AAAAJAAsAAAA7AB8AAAAGAA4AAAA7ACAAAAAGAA8AAAA8AB8AAAAHAA4AAAA8ACAAAAAHAA8AAAA9AB8AAAAIAA4AAAA9ACAAAAAIAA8AAAA+AB8AAAAJAA4AAAA+ACAAAAAJAA8AAAA=")
 tile_set = SubResource("TileSet_4p75b")
 
-[node name="RichTextLabel3" type="RichTextLabel" parent="CanvasLayer"]
+[node name="RichTextLabel3" type="RichTextLabel" parent="CanvasLayer" unique_id=1440419049]
 anchors_preset = -1
 anchor_bottom = 0.034
 offset_left = 598.0
@@ -612,14 +617,14 @@ shortcut_keys_enabled = false
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ToNextLevel" type="Area2D" parent="."]
+[node name="ToNextLevel" type="Area2D" parent="." unique_id=53950277]
 position = Vector2(3808, 184)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ToNextLevel"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ToNextLevel" unique_id=1343806188]
 position = Vector2(320, 80)
 shape = SubResource("SegmentShape2D_r4wdr")
 
-[node name="RichTextLabel3" type="RichTextLabel" parent="."]
+[node name="RichTextLabel3" type="RichTextLabel" parent="." unique_id=1703763415]
 anchors_preset = -1
 anchor_bottom = 0.034
 offset_left = 800.0
@@ -636,7 +641,7 @@ script = ExtResource("6_bhu28")
 end = 700
 start = 800
 
-[node name="RichTextLabel4" type="RichTextLabel" parent="."]
+[node name="RichTextLabel4" type="RichTextLabel" parent="." unique_id=906156496]
 anchors_preset = -1
 anchor_bottom = 0.034
 offset_left = 1938.0
@@ -653,30 +658,29 @@ script = ExtResource("6_bhu28")
 end = 1900
 start = 1938
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("7_4p75b")
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=840825832]
 autoplay = true
 
-[node name="ThirdPanelCamera" type="Camera2D" parent="."]
+[node name="ThirdPanelCamera" type="Camera2D" parent="." unique_id=1437292491]
 position = Vector2(2880, 324)
 scale = Vector2(10.6153, 10.2626)
 
-[node name="FourthPanelCamera" type="Camera2D" parent="."]
+[node name="FourthPanelCamera" type="Camera2D" parent="." unique_id=217486252]
 position = Vector2(4032, 324)
 scale = Vector2(10.6153, 10.2626)
 
-[node name="SecondPanelRightBound" type="Area2D" parent="."]
+[node name="SecondPanelRightBound" type="Area2D" parent="." unique_id=834620562]
 position = Vector2(1152, 0)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SecondPanelRightBound"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SecondPanelRightBound" unique_id=504328545]
 position = Vector2(1152, 280)
 rotation = -1.5708
 shape = SubResource("SegmentShape2D_5rfim")
 
-[node name="ThirdPanelRightBound" type="Area2D" parent="."]
+[node name="ThirdPanelRightBound" type="Area2D" parent="." unique_id=227554762]
 position = Vector2(1152, 0)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ThirdPanelRightBound"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ThirdPanelRightBound" unique_id=2139308645]
 position = Vector2(2304, 280)
 rotation = -1.5708
 shape = SubResource("SegmentShape2D_5rfim")

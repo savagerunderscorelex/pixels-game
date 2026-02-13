@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://dl6l5mc7llecd"]
+[gd_scene format=4 uid="uid://dl6l5mc7llecd"]
 
 [ext_resource type="Script" uid="uid://cj15xvru8nahd" path="res://scripts/goals.gd" id="1_crtid"]
 [ext_resource type="Texture2D" uid="uid://2dhfltmqtyw4" path="res://assets/UiCozyFree.png" id="2_eqgb2"]
@@ -245,8 +245,8 @@ sources/0 = SubResource("TileSetAtlasSource_wopwq")
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eoy4g"]
 bg_color = Color(0.286275, 0.627451, 0.898039, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_crtid"]
-bg_color = Color(0.67451, 0.411765, 0.388235, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ur5e7"]
+bg_color = Color(0.673031, 0.413077, 0.387277, 1)
 corner_radius_top_left = 20
 corner_radius_bottom_right = 20
 
@@ -255,17 +255,17 @@ bg_color = Color(0.491857, 0.280753, 0.262742, 1)
 corner_radius_top_left = 20
 corner_radius_bottom_right = 20
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ur5e7"]
-bg_color = Color(0.673031, 0.413077, 0.387277, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_crtid"]
+bg_color = Color(0.67451, 0.411765, 0.388235, 1)
 corner_radius_top_left = 20
 corner_radius_bottom_right = 20
 
-[node name="goals" type="Control"]
+[node name="goals" type="Control" unique_id=231784172]
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_crtid")
 
-[node name="Panel" type="Panel" parent="."]
+[node name="Panel" type="Panel" parent="." unique_id=815735465]
 layout_mode = 0
 offset_left = -728.0
 offset_top = -440.0
@@ -274,12 +274,13 @@ offset_bottom = -400.0
 scale = Vector2(68.4616, 225.572)
 theme_override_styles/panel = SubResource("StyleBoxFlat_xihqu")
 
-[node name="TileMapLayer" type="TileMapLayer" parent="."]
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1826028867]
+texture_filter = 1
 scale = Vector2(4.67473, 5.31583)
 tile_map_data = PackedByteArray("AAABAAAAAAAAAAoAAAACAAAAAAABAAoAAAADAAAAAAACAAoAAAAEAAAAAAADAAoAAAAFAAAAAAADAAoAAAAGAAAAAAADAAoAAAAIAAAAAAADAAoAAAAHAAAAAAADAAoAAAAJAAAAAAADAAoAAAAKAAAAAAADAAoAAAALAAAAAAADAAoAAAAMAAAAAAAEAAoAAAANAAAAAAAFAAoAAAABAAEAAAAAAAsAAAABAAIAAAAAAAwAAAABAAMAAAAAAA0AAAABAAQAAAAAAA4AAAACAAEAAAABAAsAAAACAAIAAAABAAwAAAACAAMAAAABAA0AAAACAAQAAAABAA4AAAABAAUAAAAAAAsAAAABAAYAAAAAAAwAAAACAAUAAAABAAsAAAACAAYAAAABAAwAAAABAAcAAAAAAA8AAAACAAcAAAABAA8AAAADAAcAAAACAA8AAAAEAAcAAAADAA8AAAAFAAcAAAAEAA8AAAAGAAcAAAACAA8AAAAHAAcAAAADAA8AAAAIAAcAAAAEAA8AAAAJAAcAAAACAA8AAAAKAAcAAAACAA8AAAALAAcAAAADAA8AAAAMAAcAAAAEAA8AAAANAAcAAAAFAA8AAAANAAEAAAAFAAsAAAANAAIAAAAFAAwAAAANAAMAAAAFAAsAAAANAAQAAAAFAAwAAAANAAUAAAAFAA0AAAANAAYAAAAFAA4AAAADAAEAAAACAAwAAAADAAIAAAACAA0AAAAEAAEAAAADAAwAAAAEAAIAAAADAA0AAAAFAAEAAAAEAAwAAAAFAAIAAAAEAA0AAAADAAMAAAACAAwAAAADAAQAAAACAA0AAAAEAAMAAAADAAwAAAAEAAQAAAADAA0AAAAFAAMAAAAEAAwAAAAFAAQAAAAEAA0AAAADAAUAAAACAAwAAAADAAYAAAACAA0AAAAEAAUAAAADAAwAAAAEAAYAAAADAA0AAAAFAAUAAAAEAAwAAAAFAAYAAAAEAA0AAAAGAAEAAAACAAwAAAAGAAIAAAACAA0AAAAHAAEAAAADAAwAAAAHAAIAAAADAA0AAAAIAAEAAAAEAAwAAAAIAAIAAAAEAA0AAAAGAAMAAAACAAwAAAAGAAQAAAACAA0AAAAHAAMAAAADAAwAAAAHAAQAAAADAA0AAAAIAAMAAAAEAAwAAAAIAAQAAAAEAA0AAAAGAAUAAAACAAwAAAAGAAYAAAACAA0AAAAHAAUAAAADAAwAAAAHAAYAAAADAA0AAAAIAAUAAAAEAAwAAAAIAAYAAAAEAA0AAAAJAAEAAAACAAwAAAAJAAIAAAACAA0AAAAKAAEAAAACAAwAAAAKAAIAAAACAA0AAAALAAEAAAADAAwAAAALAAIAAAADAA0AAAAJAAMAAAACAAwAAAAJAAQAAAACAA0AAAAKAAMAAAACAAwAAAAKAAQAAAACAA0AAAALAAMAAAADAAwAAAALAAQAAAADAA0AAAAJAAUAAAACAAwAAAAJAAYAAAACAA0AAAAKAAUAAAACAAwAAAAKAAYAAAACAA0AAAALAAUAAAADAAwAAAALAAYAAAADAA0AAAAMAAEAAAAEAAwAAAAMAAIAAAAEAA0AAAAMAAMAAAAEAAwAAAAMAAQAAAAEAA0AAAAMAAUAAAAEAAwAAAAMAAYAAAAEAA0AAAA=")
 tile_set = SubResource("TileSet_11lnj")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=498040620]
 layout_mode = 1
 anchors_preset = -1
 anchor_bottom = 0.034
@@ -296,7 +297,7 @@ text = "Your Goal:"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="RichTextLabel3" type="RichTextLabel" parent="."]
+[node name="RichTextLabel3" type="RichTextLabel" parent="." unique_id=1578267926]
 layout_mode = 1
 anchors_preset = -1
 anchor_bottom = 0.034
@@ -313,7 +314,7 @@ text = "Defeat the Orc"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="RichTextLabel2" type="RichTextLabel" parent="."]
+[node name="RichTextLabel2" type="RichTextLabel" parent="." unique_id=1221509044]
 layout_mode = 1
 anchors_preset = -1
 anchor_bottom = 0.034
@@ -330,7 +331,7 @@ text = "Complete All Levels"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="RichTextLabel4" type="RichTextLabel" parent="."]
+[node name="RichTextLabel4" type="RichTextLabel" parent="." unique_id=287437292]
 layout_mode = 1
 anchors_preset = -1
 anchor_bottom = 0.034
@@ -347,19 +348,19 @@ text = "Don't Die!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Button" type="Button" parent="."]
+[node name="Button" type="Button" parent="." unique_id=1316990431]
 layout_mode = 0
 offset_left = 843.0
 offset_top = 526.0
 offset_right = 973.0
 offset_bottom = 575.0
 theme_override_fonts/font = ExtResource("3_ibicj")
-theme_override_styles/hover = SubResource("StyleBoxFlat_crtid")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_eqgb2")
 theme_override_styles/normal = SubResource("StyleBoxFlat_ur5e7")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_eqgb2")
+theme_override_styles/hover = SubResource("StyleBoxFlat_crtid")
 text = "Next"
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1887731448]
 stream = ExtResource("4_eqgb2")
 autoplay = true
 
